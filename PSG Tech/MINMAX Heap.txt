@@ -1,0 +1,146 @@
+What is a Heap?
+A heap is a special kind of binary tree used primarily for priority queue operations. It satisfies the heap property:
+
+Complete binary tree: All levels are fully filled except possibly the last, which is filled from left to right.
+
+Heap property depends on the type of heap.
+
+Min Heap
+In a min heap, for every node, the value is less than or equal to its children.
+
+The smallest element is always at the root.
+
+Example:
+
+        2
+       / \
+      5   7
+     / \
+    8   10
+Here, 2 is the smallest element, and every parent node is smaller than its children.
+
+
+
+
+Max Heap
+In a max heap, for every node, the value is greater than or equal to its children.
+
+The largest element is always at the root.
+
+Example:
+
+        10
+       /  \
+      9    8
+     / \
+    5   7
+Here, 10 is the largest element, and every parent node is larger than its children.
+
+Key Operations on Heaps
+Insert: Add a new element and maintain the heap property by "bubbling up."
+
+Extract: Remove the root element (min in min heap, max in max heap) and reheapify by "bubbling down."
+
+Peek: Look at the root element without removing it.
+
+Applications
+Priority queues
+
+Heap sort algorithm
+
+Efficiently find min or max in dynamic data
+
+
+
+
+
+import java.util.PriorityQueue;
+
+public class MinHeapUsingCollection {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+        minHeap.add(10);
+        minHeap.add(4);
+        minHeap.add(15);
+        minHeap.add(20);
+        minHeap.add(0);
+
+        System.out.println("Min Heap elements (in heap order): " + minHeap);
+
+        System.out.println("Peek (min): " + minHeap.peek()); 
+
+        System.out.println("Extract min: " + minHeap.poll()); 
+
+        System.out.println("Min Heap after extracting min: " + minHeap);
+    }
+}
+
+
+
+
+import java.util.Collections;
+import java.util.PriorityQueue;
+
+public class MaxHeapUsingCollection {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+
+        maxHeap.add(10);
+        maxHeap.add(4);
+        maxHeap.add(15);
+        maxHeap.add(20);
+        maxHeap.add(0);
+
+        System.out.println("Max Heap elements (in heap order): " + maxHeap);
+
+        System.out.println("Peek (max): " + maxHeap.peek()); 
+
+        System.out.println("Extract max: " + maxHeap.poll()); 
+
+        System.out.println("Max Heap after extracting max: " + maxHeap);
+    }
+}
+
+
+
+
+
+Min Heap elements (in heap order): [0, 4, 15, 20, 10]
+Peek (min): 0
+Extract min: 0
+Min Heap after extracting min: [4, 10, 15, 20]
+
+Max Heap elements (in heap order): [20, 15, 10, 4, 0]
+Peek (max): 20
+Extract max: 20
+Max Heap after extracting max: [15, 4, 10, 0]
+
+
+
+
+
+import java.util.PriorityQueue;
+
+public class MinHeapPreserveExample {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        minHeap.add(10);
+        minHeap.add(4);
+        minHeap.add(15);
+        minHeap.add(20);
+        minHeap.add(0);
+
+        PriorityQueue<Integer> copy = new PriorityQueue<>(minHeap);
+
+        System.out.print("Min Heap elements in sorted order (without destroying original): ");
+        while (!copy.isEmpty()) {
+            System.out.print(copy.poll() + " ");
+        }
+
+        System.out.println("\nOriginal heap peek: " + minHeap.peek()); 
+    }
+}
+
+
+
