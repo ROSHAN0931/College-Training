@@ -1,0 +1,285 @@
+35. Search Insert Position
+
+Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+You must write an algorithm with O(log n) runtime complexity.
+
+Example 1:
+
+Input: nums = [1,3,5,6], target = 5
+Output: 2
+Example 2:
+
+Input: nums = [1,3,5,6], target = 2
+Output: 1
+
+public class Solution {
+    public static int searchInsert(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        return low;
+    }
+
+    public static void main(String[] args) {
+        int[] nums1 = {1, 3, 5, 6};
+        int target1 = 5;
+        int result1 = searchInsert(nums1, target1);
+        System.out.println("Input: [1, 3, 5, 6], target = 5");
+        System.out.println("Output: " + result1);  
+
+        int[] nums2 = {1, 3, 5, 6};
+        int target2 = 2;
+        int result2 = searchInsert(nums2, target2);
+        System.out.println("Input: [1, 3, 5, 6], target = 2");
+        System.out.println("Output: " + result2);  
+    }
+}
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+69. Sqrt(x)
+
+Given a non-negative integer x, return the square root of x rounded down to the nearest integer. The returned integer should be non-negative as well.
+
+You must not use any built-in exponent function or operator.
+
+For example, do not use pow(x, 0.5) in c++ or x ** 0.5 in python.
+ 
+Example 1:
+
+Input: x = 4
+Output: 2
+Explanation: The square root of 4 is 2, so we return 2.
+Example 2:
+
+Input: x = 8
+Output: 2
+Explanation: The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.
+
+
+class Solution {
+    public int mySqrt(int x) {
+        int res=0;
+        for(int i=1;i<=x/i;i++)
+        {
+            res=i;
+        }
+        return res;
+    }
+}
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+268. Missing Number
+
+Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+
+Example 1:
+
+Input: nums = [3,0,1]
+
+Output: 2
+
+Explanation:
+
+n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
+
+Example 2:
+
+Input: nums = [0,1]
+
+Output: 2
+
+Explanation:
+
+n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.
+
+
+class Solution {
+    public int missingNumber(int[] nums) {
+        int len= nums.length;
+        int SumOfNat=len * (len + 1)/2;
+        int SumOfArr=0;
+        for(int i=0;i<len;i++){
+            SumOfArr += nums[i];
+        }
+        return SumOfNat - SumOfArr ;
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------
+
+367. Valid Perfect Square
+
+Given a positive integer num, return true if num is a perfect square or false otherwise.
+
+A perfect square is an integer that is the square of an integer. In other words, it is the product of some integer with itself.
+
+You must not use any built-in library function, such as sqrt.
+
+Example 1:
+
+Input: num = 16
+Output: true
+Explanation: We return true because 4 * 4 = 16 and 4 is an integer.
+Example 2:
+
+Input: num = 14
+Output: false
+Explanation: We return false because 3.742 * 3.742 = 14 and 3.742 is not an integer.
+
+public class Solution {
+    public static boolean isPerfectSquare(int num) {
+        if (num < 2) return true;  
+
+        long low = 2, high = num / 2;
+
+        while (low <= high) {
+            long mid = low + (high - low) / 2;
+            long square = mid * mid;
+
+            if (square == num) {
+                return true;
+            } else if (square < num) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Input: 16");
+        System.out.println("Output: " + isPerfectSquare(16));
+
+        System.out.println("Input: 14");
+        System.out.println("Output: " + isPerfectSquare(14)); 
+
+        System.out.println("Input: 1");
+        System.out.println("Output: " + isPerfectSquare(1)); 
+
+        System.out.println("Input: 808201");
+        System.out.println("Output: " + isPerfectSquare(808201)); 
+    }
+}
+
+
+-------------------------------------------------------------------------------------------------------------
+
+441. Arranging Coins
+
+You have n coins and you want to build a staircase with these coins. The staircase consists of k rows where the ith row has exactly i coins. The last row of the staircase may be incomplete.
+
+Given the integer n, return the number of complete rows of the staircase you will build.
+
+Example 1:
+
+Input: n = 5
+Output: 2
+Explanation: Because the 3rd row is incomplete, we return 2.
+
+Example 2:
+
+Input: n = 8
+Output: 3
+Explanation: Because the 4th row is incomplete, we return 3.
+
+
+class Solution {
+    public int arrangeCoins(int n) {
+    long start = 1;
+    long end = n;
+
+    while (end >= start) {
+      long mid = (end + start) / 2;
+      long sum = mid * (mid + 1) / 2;  
+
+      if (sum == n) {
+        return (int)mid;
+      } 
+      else if (sum > n) {
+        end = mid - 1;
+      }
+      else {
+        start = mid + 1;
+      }
+    }
+
+    return (int)end;
+    }
+}
+
+
+
+class Solution {
+    public int arrangeCoins(int n) {
+         int row = 0;
+
+        while (n >= row + 1) {
+            row++;
+            n -= row;
+        }
+
+        return row;
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------
+
+242. Valid Anagram
+
+Given two strings s and t, return true if t is an anagram of s, and false otherwise. 
+
+Example 1:
+
+Input: s = "anagram", t = "nagaram"
+
+Output: true
+
+Example 2:
+
+Input: s = "rat", t = "car"
+
+Output: false
+
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length()!=t.length()){
+            return false;
+        }
+        char c1[]=s.toCharArray();
+        char c2[]=t.toCharArray();
+        
+        Arrays.sort(c1);
+        Arrays.sort(c2);
+
+        s=new String(c1);
+        t=new String(c2);
+
+        if(s.equals(t)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
