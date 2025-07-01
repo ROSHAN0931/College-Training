@@ -1,0 +1,806 @@
+🔷 1. Input in Python (User Input)
+➤ Basic Usage
+
+name = input("Enter your name: ")
+print("Hello", name)
+
+input() reads data  as a string.
+------------------------------------------
+To get numbers from the user, convert the input:
+
+age = int(input("Enter your age: "))  # Converts string to integer
+height = float(input("Enter your height in meters: "))  # Converts to float
+------------------------------------------
+➤ Edge Cases
+If the user inputs non-numeric text when converting with int() or float(), Python raises a ValueError.
+
+# Bad input example
+age = int(input("Enter age: "))  # Input: "abc" → ValueError
+---------------------------------------------------------
+➤ Using split() for multiple inputs
+x, y = input("Enter two numbers separated by space: ").split()
+print(x, y)
+
+You can also convert multiple inputs in one line:
+
+a, b = map(int, input("Enter two integers: ").split())
+---------------------------------------------------------
+🔷 2. Output in Python (print())
+➤ Basic Usage
+print("Hello World")
+----------------------------------------------------
+➤ Multiple values
+name = "Alice"
+age = 25
+print("Name:", name, "Age:", age)
+------------------------------------------------------
+➤ sep and end Parameters
+print("Python", "Programming", sep="-")  # Python-Programming
+print("Hello", end=" ")  
+print("World")  # Output: Hello World
+----------------------------------------------------
+➤ String Formatting Methods
+Using f-strings (Python 3.6+)
+
+name = "Bob"
+age = 30
+print(f"My name is {name} and I am {age} years old.")
+-------------------------------------------------------
+Using format() method
+
+print("My name is {} and I am {} years old.".format(name, age))
+---------------------------------------------------------
+Using % operator (older style)
+
+print("My name is %s and I am %d years old." % (name, age))
+------------------------------------------------------------
+
+'''keyword module: The keyword is the buil-in module to get the list of keywords. 
+Also, this module allows a Python program to determine if a string is a keyword.'''
+
+import keyword
+print(keyword.kwlist)
+
+Output
+
+['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break',
+'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 
+'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal',
+'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+
+
+'''help() function: Apart from a keyword module, we can use the help() function to get the list of keywords'''
+
+help("keywords")
+
+Output:
+
+Here is a list of the Python keywords.  Enter any keyword to get more help.
+
+False               break               for                 not
+None                class               from                or
+True                continue            global              pass
+__peg_parser__      def                 if                  raise
+and                 del                 import              return
+as                  elif                in                  try
+assert              else                is                  while
+async               except              lambda              with
+await               finally             nonlocal            yield
+
+'''Note:
+
+You cannot use any of the above keywords as identifiers in your programs. If you try to do so, you will get an error. 
+An identifier is a name given to an entity, For example, variables name, functions name, or class name.'''
+
+--------------------------------------------------------------------------------------
+🔷 3. Operators in Python
+🔹 A. Arithmetic Operators
+
+| Operator | Description         | Example  | Result |
+| -------- | ------------------- | -------- | ------ |
+| `+`      | Addition            | `5 + 2`  | `7`    |
+| `-`      | Subtraction         | `5 - 2`  | `3`    |
+| `*`      | Multiplication      | `5 * 2`  | `10`   |
+| `/`      | Division (float)    | `5 / 2`  | `2.5`  |
+| `//`     | Floor division      | `5 // 2` | `2`    |
+| `%`      | Modulus (remainder) | `5 % 2`  | `1`    |
+| `**`     | Exponentiation      | `2 ** 3` | `8`    |
+
+➤ Notes:
+// returns the largest integer less than or equal to the result.
+% is often used to check even/odd: if x % 2 == 0
+
+'''+ (Addition)
+- (Subtraction)
+* (Multiplication)
+/ (Division)
+// Floor division)
+℅ (Modulus)
+** (Exponentiation)'''
+
+x = 10
+y = 40
+print(x + y)
+# Output 50
+
+name = "Kelly"
+surname = "Ault"
+print(surname + " " + name)
+# Output Ault Kelly
+
+x = 10
+y = 40
+print(y - x)
+# Output 30
+
+x = 2
+y = 4
+z = 5
+print(x * y)
+# Output 8 (2*4)
+print(x * y * z)
+# Output 40 (2*4*5)
+
+name = "Jessa"
+print(name * 3)
+# Output JessaJessaJessa
+
+'''Note:
+The division operator performs floating-point arithmetic. Hence it always returns a float value.
+Don’t divide any number by zero. You will get a Zero Division Error: Division by zero'''
+
+x = 2
+y = 4
+z = 8
+print(y / x)
+# Output 2.0
+print(z / y / x)
+# Output 1.0
+# print(z / 0)  # error
+
+'''Floor division //
+Floor division returns the quotient (the result of division) in which the digits after the decimal point are removed. In simple terms, It is used to divide one value by a second value and gives a quotient as a round figure value to the next smallest whole value.
+
+It works the same as a division operator, except it returns a possible integer. The // symbol denotes a floor division operator.
+
+Note:
+
+Floor division can perform both floating-point and integer arithmetic.
+If both operands are int type, then the result types. If at least one operand type, then the result is a float type.'''
+
+x = 2
+y = 4
+z = 2.2
+
+# normal division
+print(y / x)
+# Output 2.0
+
+# floor division to get result as integer
+print(y // x)
+# Output 2
+
+# normal division
+print(y / z)  # 1.81
+
+# floor division.
+# Result as float because one argument is float
+print(y // z)  # 1.0
+
+x = 15
+y = 4
+
+print(x % y)
+# Output 3
+
+num = 2
+# 2*2
+print(num ** 2) 
+# Output 4
+
+# 2*2*2
+print(num ** 3)
+# Output 8
+--------------------------------------------------------------
+🔹 B. Comparison (Relational) Operators
+
+| Operator | Meaning          | Example  | Result  |
+| -------- | ---------------- | -------- | ------- |
+| `==`     | Equal to         | `5 == 5` | `True`  |
+| `!=`     | Not equal        | `5 != 3` | `True`  |
+| `>`      | Greater than     | `5 > 3`  | `True`  |
+| `<`      | Less than        | `5 < 3`  | `False` |
+| `>=`     | Greater or equal | `5 >= 5` | `True`  |
+| `<=`     | Less or equal    | `5 <= 3` | `False` |
+
+x = 10
+y = 5
+z = 2
+
+# > Greater than
+print(x > y)  # True
+print(x > y > z)  # True
+
+# < Less than
+print(x < y)  # False
+print(y < x)  # True
+
+# Equal to 
+print(x == y)  # False 
+print(x == 10)  # True 
+
+# != Not Equal to 
+print(x != y)  # True 
+print(10 != x)  # False 
+
+# >= Greater than equal to
+print(x >= y)  # True
+print(10 >= x)  # True
+
+# <= Less than equal to
+print(x <= y)  # False
+print(10 <= x)  # True
+
+---------------------------------------------------------
+🔹 C. Logical Operators
+
+| Operator | Description       | Example            | Result              |
+| -------- | ----------------- | ------------------ | ------------------- |
+| `and`    | Both True         | `x > 0 and x < 10` | `True` if both are  |
+| `or`     | At least one True | `x > 0 or x < -5`  | `True` if either is |
+| `not`    | Negates           | `not(x > 0)`       | `False` if x > 0    |
+
+#and
+print(True and False)  #false
+# both are True
+print(True and True)  # True
+print(False and False)  # False
+print(False and True)  # false
+
+# actual use in code
+a = 2
+b = 4
+
+# Logical and
+if a > 0 and b > 0:
+    # both conditions are true
+    print(a * b)
+else:
+    print("Do nothing")
+
+Output
+
+False
+True
+False
+False
+ 8
+
+'''In the case of arithmetic values, Logical and always returns the second value; as a result, see the following example.'''
+
+print(10 and 20) # 20
+print(10 and 5)  # 5
+print(100 and 300) # 300
+
+#or
+
+print(True or False)  # True
+print(True or True)  # True
+print(False or False)  # false 
+print(False or True)  # True
+
+# actual use in code
+a = 2
+b = 4
+
+# Logical and
+if a > 0 or b < 0:
+    # at least one expression is true so conditions is true
+    print(a + b)  # 6
+else:
+    print("Do nothing")
+
+Output
+True
+True
+False
+True
+6
+
+'''In the case of arithmetic values, Logical or it always returns the first value; as a result, see the following code.'''
+
+print(10 or 20) # 10
+print(10 or 5) # 10
+print(100 or 300) # 100
+
+#not
+
+print(not False)  # True return complements result
+print(not True)  # True return complements result
+
+# actual use in code
+a = True
+
+# Logical not
+if not a:
+    # a is True so expression is False
+    print(a) 
+else:
+    print("Do nothing")
+
+Output
+
+Do nothing
+
+'''In the case of arithmetic values, Logical not always return False for nonzero value.'''
+
+print(not 10) # False. Non-zero value
+print(not 1)  # True. Non-zero value
+print(not 5)  # False. Non-zero value
+print(not 0)  # True. zero value
+
+--------------------------------------------------------------
+🔹 D. Assignment Operators
+
+| Operator | Meaning              | Example   | Equivalent   |
+| -------- | -------------------- | --------- | ------------ |
+| `=`      | Assignment           | `x = 5`   |              |
+| `+=`     | Add and assign       | `x += 2`  | `x = x + 2`  |
+| `-=`     | Subtract and assign  | `x -= 1`  | `x = x - 1`  |
+| `*=`     | Multiply and assign  | `x *= 3`  | `x = x * 3`  |
+| `/=`     | Divide and assign    | `x /= 2`  | `x = x / 2`  |
+| `%=`     | Modulus and assign   | `x %= 3`  | `x = x % 3`  |
+| `**=`    | Power and assign     | `x **= 2` | `x = x ** 2` |
+| `//=`    | Floor div and assign | `x //= 2` | `x = x // 2` |
+
+a = 4
+b = 2
+
+a += b
+print(a)  # 6
+
+a = 4
+a -= 2
+print(a)  # 2
+
+a = 4
+a *= 2
+print(a)  # 8
+
+a = 4
+a /= 2
+print(a)  # 2.0
+
+a = 4
+a **= 2
+print(a)  # 16
+
+a = 5
+a %= 2
+print(a)  # 1
+
+a = 4
+a //= 2
+print(a)  # 2
+
+-----------------------------------------------------------------
+'''Python’s membership operators are used to check for membership of objects in sequence, such as string, list, tuple. 
+It checks whether the given value or variable is present in a given sequence. If present, it will return True else False.
+
+In Python, there are two membership operator in and not in'''
+
+'''In operator
+It returns a result as True if it finds a given object in the sequence. Otherwise, it returns False.
+
+Let’s check if the number 15 present in a given list using the in operator.'''
+
+my_list = [11, 15, 21, 29, 50, 70]
+number = 15
+if number in my_list:
+    print("number is present")
+else:
+    print("number is not present")
+
+Output
+
+number is present
+
+'''Not in operator
+It returns True if the object is not present in a given sequence. Otherwise, it returns False'''
+
+my_tuple = (11, 15, 21, 29, 50, 70)
+number = 35
+if number not in my_tuple:
+    print("number is not present")
+else:
+    print("number is present")
+
+Output
+
+number not is present
+---------------------------------------------------------------------------
+'''Identity operators
+Use the Identity operator to check whether the value of two variables is the same or not. 
+This operator is known as a reference-quality operator because the identity operator compares values according to two variables’ memory addresses.
+
+Python has 2 identity operators is and is not.
+
+is operator
+The is operator returns Boolean True or False. It Return True if the memory address first value is equal to the second value. Otherwise, it returns False.'''
+
+x = 10
+y = 11 
+z = 10
+print(x is y) # it compare memory address of x and y 
+print(x is z) # it compare memory address of x and z
+
+Output
+
+False
+True
+
+'''is not operator
+The is not the operator returns boolean values either True or False. 
+It Return True if the first value is not equal to the second value. Otherwise, it returns False.'''
+
+x = 10
+y = 11 
+z = 10
+print(x is not y) # it campare memory address of x and y 
+print(x is not z) # it campare memory address of x and z
+
+Output
+
+True
+False
+------------------------------------------------------------------
+🔹 E. Bitwise Operators (Advanced)
+
+| Operator | Description | Example    | Binary Example        |
+| -------- | ----------- | ---------- | --------------------- |
+| `&`      | Bitwise AND | `5 & 3`    | `101 & 011 = 001` (1) |
+| \`       | \`          | Bitwise OR | \`5                   |
+| `^`      | Bitwise XOR | `5 ^ 3`    | `101 ^ 011 = 110` (6) |
+| `~`      | Bitwise NOT | `~5`       | `~101 = ...1010` (-6) |
+| `<<`     | Left shift  | `5 << 1`   | `1010` (10)           |
+| `>>`     | Right shift | `5 >> 1`   | `10` (2)              |
+
+'''Bitwise and &
+It performs logical AND operation on the integer value after converting an integer to a binary value and gives the result as a decimal value.
+It returns True only if both operands are True. Otherwise, it returns False.'''
+
+a = 7
+b = 4
+c = 5
+print(a & b)
+print(a & c)
+print(b & c)
+
+#Output
+
+4
+5
+4
+
+'''Bitwise or |
+It performs logical OR operation on the integer value after converting integer value to binary value and gives the result a decimal value. 
+It returns False only if both operands are True. Otherwise, it returns True.'''
+
+a = 7
+b = 4
+c = 5
+print(a | b)
+print(a | c)
+print(b | c)
+
+#Output
+
+7
+7
+5
+
+'''Bitwise xor ^
+It performs Logical XOR ^ operation on the binary value of a integer and gives the result as a decimal value.'''
+
+a = 7
+b = 4
+c = 5
+print(a ^ c)
+print(b ^ c)
+
+#Output
+
+3
+2
+1
+
+'''Bitwise 1’s complement ~
+It performs 1’s complement operation. 
+It invert each bit of binary value and returns the bitwise negation of a value as a result.'''
+
+a = 7
+b = 4
+c = 3
+print(~a, ~b, ~c)
+# Output -8 -5 -4
+
+'''Bitwise left-shift <<
+The left-shift << operator performs a shifting bit of value by a given number of the place and fills 0’s to new positions.'''
+
+print(4 << 2) 
+# Output 16
+print(5 << 3)
+# Output 40
+
+'''Bitwise right-shift >>
+The left-shift >> operator performs shifting a bit of value to the right by a given number of places. Here some bits are lost.'''
+
+print(4 >> 2)
+# Output 
+print(5 >> 2)
+# Output 
+
+--------------------------------------------------------------------------------------
+
+Portal:-
+
+Input :-
+
+1.Input & Output - Automated System Greeting for New Users
+
+print("Hello, World!")
+
+------------------------------------------------------------------------------------
+2.Input & Output - Automated Coffee Machine Startup with Repeated Humorous Message  
+
+print("I need coffee too!!")
+print("I need coffee too!!")
+print("I need coffee too!!")
+
+-------------------------------------------------------------------------------------------
+3.Input & Output - Customer Service System Welcome Screen  
+
+username = input()
+
+print("Welcome\t" + username)
+
+--------------------------------------------------------------------------------------
+4.Input & Output - Student Information Management System
+
+name = input()
+age = int(input())
+cgpa = float(input())
+grade = input()
+
+cgpa_truncated = int(cgpa * 100) / 100
+
+print("Name:", name)
+print("Age:", age)
+print("CGPA: {:.2f}".format(cgpa_truncated))
+print("Grade:", grade)
+
+-----------------------------------------------------------------------------------------
+5.Input & Output - User Registration System
+
+age = int(input())
+name = input()
+
+print("User Details:")
+print("Name:", name)
+print("Age:", age)
+
+-----------------------------------------------------------------------------------
+6.Input & Output - Gym Membership Registration System
+
+name = input()
+membership_type = input()
+
+print("Member Name:", name)
+print("Selected Membership:", membership_type)
+
+------------------------------------------------------------------------------------------------
+7.Input & Output - Character Analysis Tool
+
+char = input()
+print(ord(char))
+
+-----------------------------------------------------------------------------
+8.Input & Output - ASCII Decoder Tool
+
+ascii_value = int(input())
+print(chr(ascii_value))
+
+-----------------------------------------------------------------------------------------
+9.Input & Output - Financial Application for Rounding Values
+
+
+import math
+
+amount = float(input())
+
+truncated = int(amount)
+
+rounded_up = math.ceil(amount)
+rounded_down = math.floor(amount)
+
+print(truncated)
+print(rounded_up)
+print(rounded_down)
+
+-------------------------------------------------------------------------------------
+10.Input & Output - Mathematical Operations Calculator
+
+import math
+
+num1 = float(input())
+num2 = float(input())
+
+sqrt_num1 = math.sqrt(num1)
+
+power_result = math.pow(num1, num2)
+
+abs_num1 = abs(num1)
+abs_num2 = abs(num2)
+
+# Print the results
+print("Square Root of first number:", sqrt_num1)
+print("First number raised to the power of second number:", power_result)
+print("Absolute value of first number:", abs_num1)
+print("Absolute value of second number:", abs_num2)
+
+--------------------------------------------------------------------------------------------
+
+11.Operators - Fencing and Carpet Calculation for a Fighting Ground
+
+length = int(input())
+breadth = int(input())
+
+perimeter = 2 * (length + breadth)
+area = length * breadth
+
+print(f"The required length is {perimeter} m")
+print(f"The required area of carpet is {area} sqm")
+
+----------------------------------------------------------------------------------------
+12.Operators - Store water
+
+R = int(input())
+H = int(input())
+
+pi = 3.14
+volume = pi * (R ** 2) * H
+
+amount_in_litres = round(volume)
+
+print(amount_in_litres)
+
+-----------------------------------------------------------------------------------
+13.Operators - Fitness App
+
+N = int(input())
+
+seconds = N * 60
+
+print(seconds)
+
+-----------------------------------------------------------------------------------------------
+14.Operators - The Clock System
+
+X = int(input())
+Y = int(input())
+
+product = X * Y
+
+result = (product - 1) % 12 + 1
+
+print(result)
+
+---------------------------------------------------------------------------------------
+15.Operators - Profit Calculation for The Herald Newspaper
+
+a = int(input())  
+b = int(input())  
+c = int(input())  
+
+total_revenue = a * b
+
+total_cost = (a * c) + 100
+
+profit = total_revenue - total_cost
+
+print(profit)
+
+---------------------------------------------------------------------------------------
+16.Operators - Opening the Enchanted Door
+
+number = input()
+
+clean_number = ''.join(filter(str.isdigit, number))
+
+first_digit = int(clean_number[0])
+last_digit = int(clean_number[-1])
+
+print(first_digit + last_digit)
+
+------------------------------------------------------------------------------------------
+17.Operators - Team Games with Ross Geller
+
+total_friends = int(input())
+num_teams = int(input())
+
+friends_per_team = total_friends // num_teams
+left_out = total_friends % num_teams
+
+print(f"The number of friends in each team is {friends_per_team} and left out is {left_out}")
+
+--------------------------------------------------------------------------------------------
+18.Operators - Goal Tracker
+
+S = int(input())  
+D = int(input())  
+N = int(input())  
+
+remaining_steps = S - D
+
+average_steps = round(remaining_steps / N)
+
+print(average_steps)
+
+----------------------------------------------------------------------------------------------
+19.Operators - Leena's Business Loan
+
+X = float(input())  
+R = float(input())  
+Y = float(input())  
+
+interest = (X * R * Y) / 100
+
+total_amount = X + interest
+
+discount = 0.02 * interest
+
+final_amount = total_amount - discount
+
+print(f"Interest: {interest:.2f}")
+print(f"Total Amount: {total_amount:.2f}")
+print(f"Discount: {discount:.2f}")
+print(f"Final Settlement Amount: {final_amount:.2f}")
+
+--------------------------------------------------------------------------------------------
+20.Operators - Currency Conversion Helper for Kamal
+
+dollar1 = int(input())
+cent1 = int(input())
+dollar2 = int(input())
+cent2 = int(input())
+
+total_dollars = dollar1 + dollar2
+total_cents = cent1 + cent2
+
+extra_dollars = total_cents // 100
+remaining_cents = total_cents % 100
+
+total_dollars += extra_dollars
+
+print(total_dollars)
+print(remaining_cents)
+
+------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
