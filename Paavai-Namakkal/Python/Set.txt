@@ -1,0 +1,104 @@
+🔹 What is a Set in Python?
+A set is an unordered collection of unique items. Sets automatically remove duplicates and are useful for membership testing, removing duplicates, and set operations like union and intersection.
+
+🔹 Creating a Set
+
+# Empty set (note: {} creates an empty dict)
+empty_set = set()
+
+# Set with multiple elements
+my_set = {1, 2, 3, 'a', 'b'}
+
+print(my_set)  # Output: {1, 2, 3, 'a', 'b'}
+
+# Creating a set from a list (removes duplicates)
+numbers = [1, 2, 2, 3, 3, 3]
+unique_numbers = set(numbers)
+print(unique_numbers)  # Output: {1, 2, 3}
+
+🔹 Set Operations
+
+# Adding elements
+my_set.add('c')       # Adds 'c' to the set
+
+# Removing elements
+my_set.remove('a')    # Removes 'a' (error if not present)
+my_set.discard('x')   # Removes 'x' if present (no error if not)
+
+# Length
+len(my_set)           # Number of elements
+
+# Membership testing
+'a' in my_set         # True or False
+
+# Clearing a set
+my_set.clear()        # Empties the set
+
+
+🔹 Set Theory Operations
+
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+# Union (all elements in A or B)
+print(A | B)          # {1, 2, 3, 4, 5, 6}
+
+# Intersection (elements in both A and B)
+print(A & B)          # {3, 4}
+
+# Difference (elements in A but not in B)
+print(A - B)          # {1, 2}
+
+# Symmetric Difference (elements in A or B but not both)
+print(A ^ B)          # {1, 2, 5, 6}
+
+🔹 Immutability and Mutability
+Sets are mutable: you can add or remove elements.
+
+Elements of a set must be immutable types (e.g., numbers, strings, tuples).
+
+🔹 Set Comprehension
+
+# Create a set of squares for numbers 0-4
+squares = {x**2 for x in range(5)}
+print(squares)  # {0, 1, 4, 9, 16}
+
+
+🔹 Use Cases
+Remove duplicates from a list:
+
+nums = [1, 2, 2, 3, 3, 3]
+unique_nums = list(set(nums))  # [1, 2, 3]
+
+Fast membership testing:
+
+vowels = {'a', 'e', 'i', 'o', 'u'}
+print('a' in vowels)  # True
+print('b' in vowels)  # False
+
+
+| Operation            | Example                    | Output / Description              |                    |
+| -------------------- | -------------------------- | --------------------------------- | ------------------ |
+| Creating a set       | `my_set = {1, 2, 3}`       | Set of unique elements            |                    |
+| Add element          | `my_set.add(4)`            | Adds element `4`                  |                    |
+| Remove element       | `my_set.remove(2)`         | Removes `2`, error if not present |                    |
+| Discard element      | `my_set.discard(5)`        | Removes `5` if present, no error  |                    |
+| Membership test      | `3 in my_set`              | `True` or `False`                 |                    |
+| Length               | `len(my_set)`              | Number of elements                |                    |
+| Union                | \`A                        | B\`                               | Elements in A or B |
+| Intersection         | `A & B`                    | Elements in both A and B          |                    |
+| Difference           | `A - B`                    | Elements in A but not in B        |                    |
+| Symmetric Difference | `A ^ B`                    | Elements in A or B but not both   |                    |
+| Clear                | `my_set.clear()`           | Empties the set                   |                    |
+| Set comprehension    | `{x**2 for x in range(5)}` | Set of squares from 0 to 4        |                    |
+
+
+
+| Feature     | Set                              | List                      |
+| ----------- | -------------------------------- | ------------------------- |
+| Syntax      | `{1, 2, 3}` or `set()`           | `[1, 2, 3]`               |
+| Ordered     | ❌ Unordered                      | ✅ Ordered                 |
+| Duplicates  | ❌ No duplicates                  | ✅ Allows duplicates       |
+| Mutable     | ✅ Yes                            | ✅ Yes                     |
+| Use Case    | Unique items, membership testing | Ordered collections       |
+| Performance | ✅ Fast membership tests          | ❌ Slower membership tests |

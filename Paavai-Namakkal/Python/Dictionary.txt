@@ -1,0 +1,89 @@
+🔹 What is a Dictionary in Python?
+A dictionary is an unordered collection of key-value pairs. Keys are unique and are used to access their corresponding values. Dictionaries are mutable, so you can add, modify, or delete items.
+
+🔹 Creating a Dictionary
+
+# Empty dictionary
+empty_dict = {}
+
+# Dictionary with initial values
+my_dict = {'name': 'Alice', 'age': 30, 'city': 'New York'}
+
+print(my_dict['name'])  # Output: Alice
+
+# Using dict() constructor
+another_dict = dict(a=1, b=2, c=3)
+print(another_dict)  # Output: {'a': 1, 'b': 2, 'c': 3}
+
+
+🔹 Accessing and Modifying Elements
+
+# Accessing value by key
+print(my_dict['age'])  # 30
+
+# Adding new key-value pair
+my_dict['profession'] = 'Engineer'
+
+# Updating existing key
+my_dict['age'] = 31
+
+# Removing a key-value pair
+del my_dict['city']
+
+# Using get() to avoid KeyError
+print(my_dict.get('city', 'Not Found'))  # Not Found
+
+
+🔹 Dictionary Methods
+
+# Keys, values, and items
+print(my_dict.keys())    # dict_keys(['name', 'age', 'profession'])
+print(my_dict.values())  # dict_values(['Alice', 31, 'Engineer'])
+print(my_dict.items())   # dict_items([('name', 'Alice'), ('age', 31), ('profession', 'Engineer')])
+
+# Check if key exists
+print('age' in my_dict)  # True
+
+# Remove and return an item
+item = my_dict.pop('age')
+print(item)              # 31
+
+# Clear the dictionary
+my_dict.clear()
+print(my_dict)           # {}
+
+
+🔹 Looping Through a Dictionary
+
+for key in my_dict:
+    print(key, my_dict[key])
+
+# Or
+for key, value in my_dict.items():
+    print(key, value)
+
+
+🔹 Dictionary Comprehension
+
+squares = {x: x**2 for x in range(5)}
+print(squares)  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+
+
+🔹 Use Cases
+Storing related data as key-value pairs.
+
+Fast lookups by keys.
+
+Representing objects with attributes.
+
+
+
+| Feature     | Dictionary                 | List                |
+| ----------- | -------------------------- | ------------------- |
+| Syntax      | `{'key': value}`           | `[value1, value2]`  |
+| Ordered     | ✅ (Python 3.7+)            | ✅                   |
+| Mutable     | ✅                          | ✅                   |
+| Keys        | Unique, immutable          | N/A                 |
+| Values      | Any type                   | Any type            |
+| Use Case    | Key-based lookups, mapping | Ordered collections |
+| Performance | ✅ Fast key lookup          | ✅ Fast index access |

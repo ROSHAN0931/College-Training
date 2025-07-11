@@ -1,0 +1,26 @@
+1.Merging Attendance Records
+
+classes, days = map(int, input().split())
+
+first_week = []
+for _ in range(classes):
+    row = list(map(int, input().split()))
+    first_week.append(row)
+
+second_week = []
+for _ in range(classes):
+    row = list(map(int, input().split()))
+    second_week.append(row)
+
+total_attendance = []
+for i in range(classes):
+    row_sum = []
+    for j in range(days):
+        row_sum.append(first_week[i][j] + second_week[i][j]) # 5 6 7
+    total_attendance.append(row_sum)
+
+for row in total_attendance:
+    print(' '.join(map(str, row)))
+
+-------------------------------------------------------------------------------------
+2.

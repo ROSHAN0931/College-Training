@@ -1,0 +1,188 @@
+In Python, strings are sequences of characters used to store and represent text. 
+
+🔹 Creating Strings
+You can create strings using single ('), double (") or triple quotes (''' or """):
+
+s1 = 'Hello'
+s2 = "World"
+s3 = '''This is
+a multi-line
+string.'''
+
+
+🔹 Basic String Operations
+Concatenation:
+
+s = 'Hello' + ' ' + 'World'  # 'Hello World'
+
+Repetition:
+
+s = 'ha' * 3  # 'hahaha'
+
+Indexing:
+
+s = 'Python'
+print(s[0])   # 'P'
+print(s[-1])  # 'n'
+
+Slicing:
+
+s = 'Python'
+print(s[1:4])   # 'yth'
+print(s[:3])    # 'Pyt'
+print(s[::2])   # 'Pto'
+
+🔹 Useful String Methods
+
+| Method          | Description                           |
+| --------------- | ------------------------------------- |
+| `lower()`       | Converts to lowercase                 |
+| `upper()`       | Converts to uppercase                 |
+| `strip()`       | Removes whitespace from ends          |
+| `replace(a, b)` | Replaces `a` with `b`                 |
+| `split()`       | Splits string into list               |
+| `join(list)`    | Joins list into string                |
+| `find(sub)`     | Finds first index of `sub`            |
+| `startswith()`  | Checks if string starts with a prefix |
+| `endswith()`    | Checks if string ends with a suffix   |
+
+1. lower()
+Converts all characters to lowercase.
+
+text = "HELLO"
+print(text.lower())  # Output: 'hello'
+
+2. upper()
+Converts all characters to uppercase.
+
+text = "hello"
+print(text.upper())  # Output: 'HELLO'
+
+3. strip()
+Removes whitespace (or other characters) from both ends of the string.
+
+text = "  hello  "
+print(text.strip())  # Output: 'hello'
+
+4. replace(a, b)
+Replaces all occurrences of substring a with b.
+
+text = "hello world"
+print(text.replace("world", "Python"))  # Output: 'hello Python'
+
+5. split()
+Splits the string into a list based on a separator (default is space).
+
+text = "a b c"
+print(text.split())  # Output: ['a', 'b', 'c']
+
+6. join(list)
+Joins elements of a list into a string using the specified separator.
+
+words = ['a', 'b', 'c']
+print(" ".join(words))  # Output: 'a b c'
+
+7. find(sub)
+Returns the index of the first occurrence of the substring sub. Returns -1 if not found.
+
+text = "hello"
+print(text.find("e"))  # Output: 1
+
+8. startswith()
+Returns True if the string starts with the specified prefix.
+
+text = "hello"
+print(text.startswith("he"))  # Output: True
+
+9. endswith()
+Returns True if the string ends with the specified suffix.
+
+text = "hello"
+print(text.endswith("lo"))  # Output: True
+
+10. capitalize()
+Capitalizes the first character of the string.
+
+text = "python is fun"
+print(text.capitalize())  # Output: 'Python is fun'
+
+11. title()
+Capitalizes the first letter of each word.
+
+text = "python is fun"
+print(text.title())  # Output: 'Python Is Fun'
+
+12. count(sub)
+Counts the number of times sub appears in the string.
+
+text = "banana"
+print(text.count("a"))  # Output: 3
+
+13. islower()
+Returns True if all characters are lowercase.
+
+text = "hello"
+print(text.islower())  # Output: True
+
+14. isupper()
+Returns True if all characters are uppercase.
+
+text = "HELLO"
+print(text.isupper())  # Output: True
+
+15. isdigit()
+Returns True if all characters are digits.
+
+text = "12345"
+print(text.isdigit())  # Output: True
+
+16. isalpha()
+Returns True if all characters are alphabetic (no numbers or symbols).
+
+text = "Hello"
+print(text.isalpha())  # Output: True
+
+17. isalnum()
+Returns True if all characters are alphanumeric (letters or digits).
+
+text = "Hello123"
+print(text.isalnum())  # Output: True
+
+18. zfill(width)
+Pads the string on the left with zeros to reach the specified width.
+
+text = "42"
+print(text.zfill(5))  # Output: '00042'
+
+19. center(width, char)
+Centers the string in a field of given width using char as fill (default is space).
+
+text = "hi"
+print(text.center(6, "*"))  # Output: '**hi**'
+
+20. ljust(width, char)
+Left-justifies the string with optional fill character.
+
+text = "hi"
+print(text.ljust(5, "-"))  # Output: 'hi---'
+
+21. rjust(width, char)
+Right-justifies the string with optional fill character.
+
+text = "hi"
+print(text.rjust(5, "-"))  # Output: '---hi'
+
+🔹 f-Strings (String Interpolation)
+
+name = "Alice"
+age = 30
+print(f"My name is {name} and I am {age} years old.")
+
+
+🔹 Immutability
+Strings in Python are immutable — you can't change a character in place:
+
+s = "Hello"
+# s[0] = 'h'  # ❌ This will raise an error
+s = 'h' + s[1:]  # ✅ Workaround
+
