@@ -3,47 +3,128 @@ class Node:
     def __init__(self,data):
         self.data=data
         self.next=None
-        # [40,none]
-
-class Linkedlist:
+        
+class LinkedList:
     def __init__(self):
-        self.head=None
+        self.head = None
         
-    def insertfront(self,data):
+    def insertback(self,data):
         newnode = Node(data)
-        
         if self.head is None:
             self.head=newnode
             return
         
-        newnode.next = self.head
-        self.head=newnode
-        
-    def insertback(self,data):
-        newnode = Node(data)
         temp=self.head
-        
         while temp.next:
             temp=temp.next
-        
+            
         temp.next=newnode
         
+    def insertfront(self,data):
+        newnode = Node(data)
+        if self.head is None:
+            self.head=newnode
+            return
+        
+        newnode.next=self.head
+        self.head=newnode
+    
+    def insertmiddle(self,data,pos):
+        newnode = Node(data)
+        if pos == 0:
+            newnode.next=self.head
+            self.head=newnode
+            return
+        
+        temp = self.head
+        count = 0
+        
+        while temp is not None and count < pos-1:
+            temp=temp.next
+            count += 1
+        
+        newnode.next=temp.next
+        temp.next=newnode
+    
+    def deletefront(self):
+        if self.head is None:
+            print("empty")
+            return
+        
+        self.head=self.head.next
+        
+        
+    def deletelast(self):
+        if self.head is None:
+            print("empty")
+            return
+        
+        if self.head.next is None:
+            self.head.next=None
+        
+        temp=self.head
+        while temp.next.next:
+            temp=temp.next
+            
+        temp.next=None
+    
+    def deletemiddle(self,pos):
+        if self.head is None:
+            print("empty")
+            return
+        
+        if pos == 0:
+            self.head=self.head.next
+            return
+        
+        temp=self.head
+        count = 0
+        
+        while temp is not None and count < pos-1:
+            temp=temp.next
+            count += 1
+        
+        temp.next=temp.next.next
     
     def display(self):
-        temp = self.head
+        temp=self.head
         while temp:
-            print(temp.data,end="->")
+            print(temp.data , end="-->")
             temp=temp.next
         print("None")
-            
-        
-#creating an object for Linkedlist class
-items = Linkedlist()
-print("insert front")
-items.insertfront(10)
-items.insertfront(20)
-items.insertfront(30)
+    
+items = LinkedList()
+print("enter the elements")
+n = int(input())
+while n>=0:
+    items.insertback(n)
+    n=int(input())
+
+print("List : ")
 items.display()
-print("insert back")
-items.insertback(40)
+
+print("Give input for insert front")
+val = int(input())
+items.insertfront(val)
 items.display()
+
+print("Input for insert middle")
+midval = int(input())
+pos = int(input())
+items.insertmiddle(midval,pos)
+items.display()
+
+print("delete front")
+items.deletefront()
+items.display()
+
+print("delete last")
+items.deletelast()
+items.display
+
+print("delete middle")
+print("give input")
+delmid = int(input())
+items.deletemiddle(delmid)
+items.display()
+
