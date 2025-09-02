@@ -1,0 +1,175 @@
+Arrays 1D - Insertion of New Product IDs
+
+n=int(input()) # 5
+num = list(map(int,input().split()))
+#empty list
+arr = []
+
+for i in range(n):
+    arr.append(num[i]) # 101 105 110 120 130
+
+val = int(input()) # 107
+arr.append(val) # 101 105 110 120 130 107
+arr.sort() # ascending order
+
+for i in range(len(arr)):
+    print(arr[i],end=" ")
+    
+-----------------------------------------------------------------------------
+Arrays 1D - Second Occurrence
+
+n=int(input())
+num = list(map(int,input().split()))
+# 1 2 3 4 4 5 5 5
+maxval=num[0]; # 1
+
+for i in range(1,n):
+    if num[i] > maxval:
+        maxval = num[i] # 5
+        
+arr = []
+for i in range(n):
+    if maxval != num[i]:
+        arr.append(num[i]) # 1 2 3 4 4
+        
+if (n==1) or len(arr)==0:
+    print(0)
+else:
+    second = arr[0] # 1
+    for i in range(1,len(arr)):
+        if arr[i] > second:
+            second = arr[i] # 4
+            
+    count = 0
+    for i in range(len(arr)):
+        if second == arr[i]:
+            count = count + 1
+    
+    print(count)
+
+-----------------------------------------------------------------------------
+Arrays 1D - Dinner Dishes
+
+n = int(input())
+nums = list(map(int,input().split()))
+
+if n < 2:
+    print(0)
+else:
+    nums.sort(reverse=True)  
+    maxsum = nums[0] + nums[1]
+    print(maxsum)
+    
+-----------------------------------------------------------------------------
+Arrays 1D - Nick's check
+
+n = int(input())
+a = list(map(int, input().split()))
+
+a.sort()
+
+consecutive = 1
+
+for i in range(1, n):
+    if a[i] - a[i - 1] != 1:
+        consecutive = 0
+        break
+
+print(consecutive)
+
+-----------------------------------------------------------------------------
+Arrays 1D - The lost Digit
+
+
+n = int(input())
+a = list(map(int, input().split()))
+
+expected_sum = n * (n + 1) // 2
+
+actual_sum = 0
+for i in range(len(a)):
+    actual_sum += a[i]
+
+missing = expected_sum - actual_sum
+
+print(missing)
+
+------------------------------------------------------------------------------
+Arrays 1D - Alice's Magical shoes!
+
+
+n = int(input())
+a = list(map(int, input().split()))
+
+count = 0
+
+for i in range(n):
+    if a[i] % 3 == 0:
+        count += 1
+
+print(count)
+
+------------------------------------------------------------------------------
+Arrays 1D - Data Recovery - Reversing the Sensor Log
+
+n = int(input().strip())
+readings = list(map(int, input().split()))
+
+# Reverse using slicing
+readings = readings[::-1]
+
+# Print in one line
+print(*readings)
+
+------------------------------------------------------------------------------
+Arrays 1D - Playing with Numbers
+
+n = int(input())                   # size of array
+arr = list(map(int, input().split()))
+d = int(input())                   # number of shifts
+
+d = d % n                          # handle if d > n
+
+for i in range(d):                 # repeat d times
+    first = arr[0]                 # take first element
+    for j in range(n-1):           # shift all elements left
+        arr[j] = arr[j+1]
+    arr[n-1] = first               # put first at the end
+
+print(*arr)
+------------------------------------------------------------------------------
+Arrays 1D - Unsold Products
+
+n = int(input())                           # size of array
+arr = list(map(int, input().split()))
+
+result = []                                # store non-zero first
+zero_count = 0
+
+for x in arr:
+    if x == 0:
+        zero_count += 1                    # count zeros
+    else:
+        result.append(x)                   # keep non-zero numbers
+
+# add all zeros at the end
+for i in range(zero_count):
+    result.append(0)
+
+print(*result)
+------------------------------------------------------------------------------
+Arrays 1D - Finding the Median of Positive Product IDs
+
+n = int(input())  
+arr = list(map(int, input().split()))
+
+# keep only positive IDs
+positives = [x for x in arr if x > 0]
+
+# if no positive ID, return -1
+if len(positives) == 0:
+    print(-1)
+else:
+    mid = len(positives) // 2   # for even count, picks smaller index
+    print(positives[mid])
+

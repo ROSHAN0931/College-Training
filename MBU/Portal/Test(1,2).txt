@@ -1,0 +1,121 @@
+1.
+Input Format
+The input consists of a single float value.
+
+Output Format
+The output consists of:
+The integer part of the float (truncated).
+The rounded-up value.
+The rounded-down value.
+
+Sample Input 0
+54.5
+Sample Output 0
+54
+55
+54
+-------------------------------------------------------------
+2.
+Input Format
+Four integers: dollar1, cent1, dollar2, cent2.
+
+Output Format
+Two integers representing the total dollars and total cents.
+Sample Input 0
+30
+10
+140
+99
+Sample Output 0
+171
+9
+------------------------------------------------------------
+3.
+Input Format
+An integer value X
+An integer value Y
+
+Output Format
+Return an integer value representing the product of the two integers in the 12 hour system.
+
+Sample Input 0
+4
+5
+Sample Output 0
+8
+-----------------------------------------------------------
+4.
+Input Format
+The program receives three integers:
+a: Number of copies sold (in integer).
+b: Cost per copy (in integer).
+c: Cost spent per copy (in integer).
+Output Format
+The output consists of a single integer which represents the profit obtained by The Herald.
+Sample Input 0
+1000
+2
+1
+Sample Output 0
+900
+-------------------------------------------------------------
+5.
+Input Format
+The input consists of three floating-point values:
+The first value corresponds to the principal amount borrowed by Leena (Rs. X).
+The second value corresponds to the rate of interest (R%).
+The third value corresponds to the loan period in years (Y).
+
+Output Format
+The output consists of four floating-point values, each formatted to two decimal places:
+The interest.
+The total amount (principal + interest).
+The discount on the interest.(2%)
+The final settlement amount after applying the discount.
+
+Sample Input 0
+100
+1
+10
+
+Sample Output 0
+Interest: 10.00
+Total Amount: 110.00
+Discount: 0.20
+Final Settlement Amount: 109.80
+-------------------------------------------------------------
+6.
+Input Format
+The input consists of: A string representing the student's name. An integer representing the student's age. A float representing the student's CGPA. A character representing the student's grade.
+
+Output Format
+The program should output the student’s details in the following format:
+Name: [name]
+Age: [age]
+CGPA: [CGPA]
+Grade: [grade]
+
+Sample Input 0
+Rajeev
+20
+8.6467
+B
+
+Sample Output 0
+Name: Rajeev
+Age: 20
+CGPA: 8.64
+Grade: B
+------------------------------------------------------------
+7.
+Input Format
+The input consists of a single integer representing an ASCII value.
+
+Output Format
+The output should print the corresponding character for the given ASCII value.
+
+Sample Input 0
+119
+
+Sample Output 0
+w

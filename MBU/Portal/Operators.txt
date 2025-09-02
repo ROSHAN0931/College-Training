@@ -1,0 +1,97 @@
+Fencing and Carpet Calculation for a Fighting Ground
+
+l = int(input())
+b = int(input())
+
+area = l * b
+peri = 2 * (l + b)
+
+print("The required length is",peri,"m")
+print("The required area of carpet is",area,"sqm")
+------------------------------------------------------------------
+Store Water
+
+r = int(input())
+h = int(input())
+pi = 3.14
+
+volume = pi * (r * r) * h
+
+print(round(volume))
+------------------------------------------------------------------------
+Fitness App
+
+minutes = int(input())
+seconds = minutes * 60
+print(seconds)
+----------------------------------------------------------------------
+The Clock Problem
+
+x = int(input())
+y = int(input())
+
+product = x * y
+
+result = (product -1) % 12 + 1
+
+print(result)
+----------------------------------------------------------------------------
+Team Games with Ross Geller
+
+friends = int(input())
+team = int(input())
+
+split = friends // team
+remain = friends % team
+
+print("The number of friends in each team is",split,"and left out is",remain)
+------------------------------------------------------------------------------
+Opening the Enchanted Door
+
+number = int(input())
+
+first = number // 1000
+last = number % 10
+
+addition = first + last
+print(addition)
+----------------------------------------------------------------------------
+Goal Tracker
+
+s = int(input())
+d = int(input())
+n = int(input())
+
+steps = s-d
+average = round(steps/n)
+
+print(average)
+-----------------------------------------------------------------------------
+Profit Calculation for The Herald Newspaper
+
+number = int(input())
+costper = int(input())
+costspent = int(input())
+
+total_revenue = number * costper # 2000
+total_cost = (number * costspent) + 100 #1100
+
+profit = total_revenue - total_cost
+print(profit)
+-----------------------------------------------------------------------------
+Leena's Business Loan
+
+X = float(input())
+R = float(input())
+Y = float(input())
+
+intrest = (X * R * Y)/100
+amount = X + intrest
+discount = 0.02 * intrest
+final = amount - discount
+
+print(f"Interest: {intrest:.2f}")
+print(f"Total Amount: {amount:.2f}")
+print(f"Discount: {discount:.2f}")
+print(f"Final Settlement Amount: {final:.2f}")
+------------------------------------------------------------------------------

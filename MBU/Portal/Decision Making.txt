@@ -1,0 +1,172 @@
+1.Decision Making - Temperature Check for Outdoor Activities
+
+temp = int(input())
+
+if temp > 0:
+    print("Safe for outdoor activities")
+else:
+    print("Too cold for outdoor activities")
+-----------------------------------------------------------------------------------
+2.Decision Making - Event Scheduling for Leap Year Celebrations
+
+year = int(input())
+
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print("Schedule Event")
+else:
+    print("No Event This Year")
+
+-----------------------------------------------------------------------------------
+3.Decision Making - Narnian Alphabet Helper
+
+char = input()
+
+if len(char)==1 and char.isalpha():
+    ch = char.lower()
+    
+    if ch == 'a' or ch == 'e' or ch == 'i' or ch == 'o' or ch == 'u':
+            print("Vowel")
+    else:
+        print("Consonant")
+else:
+    print("Not an alphabet")
+
+-----------------------------------------------------------------------------------
+4.Decision Making - Rock, Paper, Scissors
+
+player = input()
+
+if player=="rock":
+    print("Paper")
+elif player=="paper":
+    print("Scissors")
+elif player=="scissors":
+    print("Rock")
+else:
+    print("Invalid move")
+
+-----------------------------------------------------------------------------------
+5.Decision Making - Joey's Quest for the Trendy Meatball Sandwich
+
+n = int(input())
+
+if n >= 100 and n <= 999:
+    middle_digit = (n // 10) % 10  
+    if middle_digit % 3 == 0:
+        print("Trendy Number")
+    else:
+        print("Not a Trendy Number")
+else:
+    print("Invalid Number")
+
+-----------------------------------------------------------------------------------
+6.Decision Making - Car Rental Charges for a Travel Agency
+
+import math
+
+R1 = int(input())
+N = int(input())
+R2 = int(input())
+X = int(input())
+
+# Convert minutes to total hours (round up any fraction)
+total_hours = math.ceil(X / 60)
+
+if total_hours <= N:
+    cost = total_hours * R1
+else:
+    cost = N * R1 + (total_hours - N) * R2
+
+print(cost)
+
+----------------------------------------------------------------------------------
+Choosing the Tallest Skyscraper
+
+# Read input
+height1, height2, height3 = map(int, input().split())
+
+# Find tallest skyscraper
+tallest = max(height1, height2, height3)
+
+# Print result
+print(tallest)
+------------------------------------------------------------------------
+Selecting the Second Best Candidate
+
+# Read input
+a, b, c = map(int, input().split())
+
+# all equal
+if a == b == c:
+    print(a)
+
+# two numbers equal
+elif a == b:
+    if a > c:
+        print(c)   # c is smaller, so second-highest = c
+    else:
+        print(a)   # a (==b) is smaller, so that's second-highest
+elif b == c:
+    if b > a:
+        print(a)
+    else:
+        print(b)
+elif a == c:
+    if a > b:
+        print(b)
+    else:
+        print(a)
+
+# all distinct
+else:
+    if (a > b and a < c) or (a > c and a < b):
+        print(a)
+    elif (b > a and b < c) or (b > c and b < a):
+        print(b)
+    else:
+        print(c)
+---------------------------------------------------------------------------
+Calculating Daily Profit or Loss Percentage
+
+# Read inputs
+investment = int(input())
+earnings = int(input())
+
+# Check for invalid input
+if investment < 0 or earnings < 0:
+    print("Invalid Input")
+
+# No Profit, No Loss
+elif investment == earnings:
+    print("No Profit, No Loss")
+
+# Profit case
+elif earnings > investment:
+    profit = earnings - investment
+    percentage = (profit * 100) // investment
+    print(f"Profit - {percentage}%")
+
+# Loss case
+else:
+    loss = investment - earnings
+    percentage = (loss * 100) // investment
+    print(f"Loss - {percentage}%")
+--------------------------------------------------------------------------
+Movie Ticket Price Calculator
+
+# Read inputs
+age = int(input())
+show_time = float(input())
+
+# Matinee special case
+if show_time == 13.30:
+    price = 2.00
+else:
+    if age > 13:
+        price = 5.00   # Adult
+    else:
+        price = 2.00   # Child
+
+# Print with two decimal places
+print(f"${price:.2f}")
+----------------------------------------------------------------------------
