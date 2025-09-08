@@ -1,0 +1,176 @@
+2D list
+
+1.Merging Attendance Records
+
+classes, days = map(int, input().split())
+
+week1 = [list(map(int, input().split())) for _ in range(classes)]
+
+week2 = [list(map(int, input().split())) for _ in range(classes)]
+
+for i in range(classes):
+    total_row = []
+    for j in range(days):
+        total = week1[i][j] + week2[i][j]
+        total_row.append(str(total))
+    print(" ".join(total_row) + " ")
+
+-------------------------------------------------------------------------------------------------------------
+2.Irene's Audience Arrangement Checker
+
+n = int(input())
+
+matrix = []
+
+for _ in range(n):
+  row = list(map(int,input().split()))
+  matrix.append(row)
+
+for i in range(n):
+  for j in range(i):
+    if matrix[i][j]!=0:
+      print("Not an Upper triangular matrix")
+      exit()
+
+print("Upper triangular matrix")
+-------------------------------------------------------------------------------------------------------------
+3.Robotic Warehouse Navigation - Snake Pattern Traversal
+
+m,n = map(int,input().split())
+
+matrix = []
+
+for i in range(m):
+  row = list(map(int,input().split()))
+  matrix.append(row)
+
+order = []
+for i in range(m):
+  if i%2==0:
+    for j in range(n):
+      order.append(matrix[i][j])
+
+  else:
+    for j in range(n-1,-1,-1):
+      order.append(matrix[i][j])
+
+
+print(*order)
+-------------------------------------------------------------------------------------------------------------
+4.Identifying Maximum Defect Levels in Production Batches
+
+m,n = map(int,input().split())
+
+matrix = []
+
+for i in range(m):
+  row = list(map(int,input().split()))
+  matrix.append(row)
+
+  defect = max(row)
+
+  print(defect)
+-------------------------------------------------------------------------------------------------------------
+5.Counting Sorted Production Lines
+
+m, n = map(int, input().split())
+
+matrix = [list(map(int, input().split())) for _ in range(m)]
+
+count_sorted = 0
+
+for row in matrix:
+    is_sorted = True
+    for i in range(len(row) - 1):
+        if row[i] > row[i + 1]:
+            is_sorted = False
+            break
+    if is_sorted:
+        count_sorted += 1
+
+print(count_sorted)
+------------------------------------------------------------------------------------------------------------
+6.Power Grid Monitoring - Computing Diagonal Load Balances
+
+n = int(input())
+
+matrix = [list(map(int, input().split())) for _ in range(n)]
+
+primary_sum = 0
+secondary_sum = 0
+
+for i in range(n):
+    primary_sum += matrix[i][i]          # Primary diagonal element
+    secondary_sum += matrix[i][n - 1 - i]  # Secondary diagonal element
+
+# Print the sums
+print(primary_sum, secondary_sum)
+-------------------------------------------------------------------------------------------------------------
+7.Image Rotation Feature
+
+n = int(input())
+
+matrix = [list(map(int, input().split())) for _ in range(n)]
+
+# Transpose the matrix
+for i in range(n):
+    for j in range(i + 1, n):
+        matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+
+# Reverse each row
+for i in range(n):
+    matrix[i].reverse()
+
+# Print output exactly as expected (no trailing spaces)
+for row in matrix:
+    print(*row)
+-------------------------------------------------------------------------------------------------------------
+8.Security Camera Image Processing System
+
+# Read the size of the image
+n = int(input())
+
+# Read the image matrix
+image = [list(map(int, input().split())) for _ in range(n)]
+
+# Process the image
+for i in range(n):
+    # Step 1: Flip each row horizontally (reverse the row)
+    image[i].reverse()
+
+    # Step 2: Invert the row (replace 0 with 1 and 1 with 0)
+    for j in range(n):
+        image[i][j] = 1 - image[i][j]
+
+# Print the modified image
+for row in image:
+    print(" ".join(map(str, row))+" ")
+-------------------------------------------------------------------------------------------------------------
+9.Warehouse Inventory Sum Calculation
+
+# Read the size of the grid
+n = int(input())
+
+# Read the grid
+grid = [list(map(int, input().split())) for _ in range(n)]
+
+# Calculate row sums
+row_sums = [sum(row) for row in grid]
+
+# Calculate column sums
+# Initialize list with zeros
+col_sums = [0] * n
+for j in range(n):
+    for i in range(n):
+        col_sums[j] += grid[i][j]
+
+# Print results
+print("Row sums:")
+for rs in row_sums:
+    print(rs)
+
+print("Column sums:")
+for cs in col_sums:
+    print(cs)
+--------------------------------------------------------------------------------------------------------------
+
