@@ -1,0 +1,59 @@
+Automated System Greeting for New Users
+
+print("Hello, World!")
+
+------------------------------------------------------------------------------
+
+Automated Coffee Machine Startup with Repeated Humorous Message
+
+print("I need coffee too!!")
+print("I need coffee too!!")
+print("I need coffee too!!")
+
+-----------------------------------------------------------------------------------
+
+Character Analysis Tool
+
+ch = input()
+print(ord(ch))
+
+---------------------------------------------------------------------------
+
+Gym Membership Registration System
+
+name = input()
+month = input()
+
+print("Member Name: " + name)
+print("Selected Membership: " + month)
+
+--------------------------------------------------------------------------------------
+
+ASCII Decoder Tool
+
+num = int(input())
+print(chr(num))
+
+---------------------------------------------------------------------------------------
+
+User Registration System
+
+age = int(input())
+name = input()
+
+print("User Details:")
+print("Name:",name)
+print("Age:",age)
+
+------------------------------------------------------------------------------------------
+
+Financial Application for Rounding Values
+
+import math
+
+number = float(input())
+
+print(int(number))
+print(math.ceil(number))
+print(math.floor(number))
+------------------------------------------------------------------------
