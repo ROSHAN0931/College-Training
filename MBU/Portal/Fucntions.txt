@@ -1,0 +1,235 @@
+Perfect Number Detection for Vault Security
+
+def perfectNumber(n):
+  temp = n
+  sum = 0
+  for i in range(1,n):
+    if temp % i == 0:
+      sum = sum + i 
+
+  if sum == temp:
+    return 1
+  else:
+    return sum 
+
+n = int(input())
+result = perfectNumber(n)
+print(result)
+
+----------------------------------------------------------------------------------------------
+
+Calculating the Total of Unique Products Sold
+
+def SumUnique(arr,n):
+  arr.sort()
+  sum=0
+  i = 0
+  while i<n-1:
+    if arr[i] == arr[i+1]:
+      i = i + 2
+    else:
+      sum = sum + arr[i]
+      i = i + 1
+      
+  if sum == 0:
+    return 0
+    
+  if i==n-1:
+    sum = sum + arr[n-1]
+  return sum 
+
+n = int(input())
+arr = list(map(int,input().split()))
+result = SumUnique(arr,n)
+print(result)
+
+---------------------------------------------------------------------------------------------
+
+Finding the Leaders in Sales Data
+
+def leader(arr,n):
+  if n==0:
+    return -1
+
+  sum = arr[-1] # 14
+  maxval = arr[-1] # 14
+
+  for i in reversed(arr[:-1]):
+    if i > maxval:
+      sum = sum + i
+      maxval = i
+
+  return sum
+
+n= int(input())
+arr = list(map(int,input().split()))
+result = leader(arr,n)
+print(result)
+
+---------------------------------------------------------------------------------------------------
+
+Secure Login System Password Validator
+
+def pass_check(s):
+    if len(s) < 4:
+        return 0
+
+    if s[0].isdigit():
+        return 0
+
+    num_count = 0
+    upper_count = 0
+
+    for c in s:
+        if c == ' ' or c == '/':
+            return 0
+
+        if c.isdigit():
+            num_count += 1
+
+        if c.isupper():
+            upper_count += 1
+
+    if len(s) >= 4 and num_count >= 1 and upper_count >= 1:
+        return 1
+    else:
+        return 0
+
+
+# Input
+str_input = input()
+
+# Output
+print(pass_check(str_input))
+
+-------------------------------------------------------------------------------------------------------
+
+Efficient Budget Allocation for Project Expenses
+
+def EvenOdd(n):
+  evensum = 0
+  oddsum = 0
+  while n > 0:
+    rem = n%10
+    if rem%2==0:
+      evensum = evensum + rem
+    else:
+      oddsum = oddsum + rem
+    n = n // 10
+
+  if evensum > oddsum:
+    return evensum
+  else:
+    return oddsum
+    
+n=int(input())
+result = EvenOdd(n)
+print(result)
+
+---------------------------------------------------------------------------------------------------------------------
+
+Switching Letters in a Text
+
+def replace(s,ch1,ch2):
+  if len(s)==0:
+    print(None)
+  elif ch1==ch2 or ch1 not in s or ch2 not in s:
+    print(s)
+  else:
+    res=""
+    for i in s:
+      if i==ch1:
+        res=res+ch2
+      elif i==ch2:
+        res=res+ch1
+      else:
+        res=res+i
+    print(res)
+      
+s=input()
+ch1=input()
+ch2=input()
+replace(s,ch1,ch2)
+
+--------------------------------------------------------------------------------------------------
+
+Matrix Update for Weather Forecast Analysis
+
+m = int(input())
+mat = []
+
+for i in range(m):
+    row = list(map(int, input().split()))
+    mat.append(row)
+
+for i in range(m):
+    total = 0
+
+    # check top row
+    if i-1 >= 0:
+        total += mat[i-1][i]           # top
+        if i-1 >= 0 and i-1 >= 0:
+            total += mat[i-1][i-1]     # top-left
+        if i-1 >= 0 and i+1 < m:
+            total += mat[i-1][i+1]     # top-right
+
+    # check bottom row
+    if i+1 < m:
+        total += mat[i+1][i]           # bottom
+        if i+1 < m and i-1 >= 0:
+            total += mat[i+1][i-1]     # bottom-left
+        if i+1 < m and i+1 < m:
+            total += mat[i+1][i+1]     # bottom-right
+
+    # check left
+    if i-1 >= 0:
+        total += mat[i][i-1]
+
+    # check right
+    if i+1 < m:
+        total += mat[i][i+1]
+
+    mat[i][i] = total
+
+for row in mat:
+    print(" ".join(map(str, row))+" ")
+
+-----------------------------------------------------------------------------------------------------
+
+Identifying Special Numbers in Inventory Management
+
+import math
+
+def solution(n,m):
+  low = math.ceil(math.sqrt(n))
+  high = math.floor(math.sqrt(m))
+
+  if low > high:
+    return 0
+  else:
+    return high - low + 1
+
+n = int(input())
+m = int(input())
+result = solution(n,m)
+print(result)
+
+----------------------------------------------------------------------------------------------
+
+Finding Divisible Sub-Numbers in a Transaction ID
+
+def count(n:str)->int:
+  c = 0
+  for i in range(len(n)):
+    for j in range(i+1,len(n) + 1):
+      sub = n[i:j]
+      val = int(sub)
+      if val % 11 == 0:
+        c = c + 1
+  return c
+  
+n = input().strip()
+result = count(n)
+print(result)
+
+---------------------------------------------------------------------------------------
