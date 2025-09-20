@@ -1,0 +1,156 @@
+Character Count
+
+str = input()
+n = int(input())
+ch = input()
+
+print(str.count(ch))
+
+--------------------------------------------------------------------------------
+
+Lower Case Count
+
+str = input()
+n = int(input())
+count = 0 
+# Roshan
+for i in str:
+  if i.islower():
+    count = count + 1
+    print(i,end="") 
+
+print(end=" ")
+print(count)
+#oshan 5
+-------------------------------------------------------------------------------------------
+
+Fannys occurrence
+
+str = input()
+ch = input()
+
+print(str.replace(ch,""))
+
+------------------------------------------------------------------------------------------
+
+Kindergarten Sentence Building
+
+str = input().split()
+arr = []
+
+#My name is Roshan 
+for i in str: 
+  l = 0
+  for j in i:
+    if j.isalpha():
+      l += 1
+
+  arr.append(l) # 9,2,3,8,4
+
+print(max(arr))
+
+----------------------------------------------------------------------------------------------
+
+Seat Allocation Check for Graduation Ceremony
+
+str = input()
+arr = []
+upper = str.upper() # ACE
+count = 0 
+
+for i in range(len(upper)):
+  if upper[i]==chr(65+i):
+    count += 1
+
+print(count)
+
+-------------------------------------------------------------------------------------------------
+
+Identifying Overused Letters
+
+str = input()
+arr = []
+
+# trumpet
+
+for i in str:
+  arr.append(str.count(i)) # 2,1,1,1,1,1,2
+
+print(max(arr))
+
+--------------------------------------------------------------------------------------------------
+
+Data Compression for Server Log Optimization
+
+str = input()
+res = ""
+
+for i in str:
+  if i not in res:
+    res = res + i    # abcdefg
+
+print(res[::-1])
+
+---------------------------------------------------------------------------------------------------
+
+Reversing Words for a Speech Teleprompter
+
+str = input().split()  # hello world
+
+for i in reversed(str):
+  print(i,end=" ")
+
+---------------------------------------------------------------------------------------------------
+
+Analyzing Sentence Complexity in Content Writing
+
+# hello world ai
+# hello -> 2v, 3c -> hard
+# world -> 1v, 4c -
+# ai -> 2v, 0c
+# c > v -> hard orelse -> easy
+# 8
+
+str = input().split()
+
+if len(str)==0:
+  print(0)
+else:
+  vowels = "aeiou"
+  hard=easy=0
+  for word in str:
+    # hello
+    # h e l l o
+    v = sum(1 for ch in word if ch in vowels) # 2
+    c = sum(1 for ch in word if ch.isalpha() and ch not in vowels) # 3
+
+    if c > v:
+      hard = hard + 1
+    else:
+      easy = easy + 1
+
+  diff = (5 * hard) - (2 * easy)
+  print(diff)
+
+---------------------------------------------------------------------------------------------------
+
+Analyzing Alphanumeric Characters in Official Documents
+
+str = input()
+count = 0
+
+for i in str:
+  if i.isalnum():
+    count += 1
+
+print(count)
+
+---------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
