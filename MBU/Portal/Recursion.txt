@@ -1,0 +1,134 @@
+Calculating Factorials for the Space Expedition
+
+def fact(num):
+    if num < 0 or num>20:
+      return "Invalid input! Please enter a number between 0 and 20."
+    elif num==0 or num==1:
+        return 1
+    else:
+        return num * fact(num-1)
+
+num = int(input())
+result = fact(num)
+print(result)
+
+--------------------------------------------------------------------------------------
+
+Calculating the Total Revenue of Orders
+
+def sumofnat(num):
+  if num==1:
+    return 1
+  else:
+    return num + sumofnat(num-1)
+
+num = int(input())
+result = sumofnat(num)
+print(result)
+
+-----------------------------------------------------------------------------------------
+
+The Fibonacci Sequence for Future Engineers
+
+def fibonacci(num):
+    if num==0:
+        return 0
+    elif num==1:
+        return 1
+    else:
+        return fibonacci(num-1) + fibonacci(num-2)
+
+num = int(input())
+res = fibonacci(num)
+print(res)
+
+--------------------------------------------------------------------------------------
+
+Finding the Greatest Common Divisor in Ancient Math
+
+def GCD(a,b):
+    if b==0:
+        return a
+    else:
+        return GCD(b,a%b)
+
+a, b = map(int, input().split())
+res = GCD(a,b)
+print(res)
+
+---------------------------------------------------------------------------------------
+
+Finding the Mighty Element in the Forest
+
+def maxval(arr,n):
+  if n==1:
+    return arr[0]
+  
+  temp = maxval(arr,n-1) 
+
+  if arr[n-1] > temp:
+      return arr[n-1]
+  else:
+      return temp
+      
+n = int(input())
+arr = list(map(int,input().split()))
+res = maxval(arr,n)
+print(res)
+
+---------------------------------------------------------------------------------------
+Counting Active Bits in a Device Monitoring System
+
+def binary(num):
+  if num == 0:
+    return 0
+  else:
+    return (num%2) + binary(num // 2)
+
+num = int(input())
+print(binary(num))
+
+----------------------------------------------------------------------------------------
+
+Recursive String Length Calculator
+
+def countlen(str):
+  if str == "":
+    return 0
+  else:
+    return 1 + countlen(str[1:])
+
+str = input()
+print(countlen(str))
+
+-----------------------------------------------------------------------------------------
+
+Recursive Sum of Array Elements
+
+def findsum(arr,n):
+  if n == 1:
+    return arr[0]
+  elif n==0:
+    return 0
+  else:
+    return arr[n-1] + findsum(arr,n-1)
+
+n = int(input())
+arr = list(map(int,input().split()))
+print(findsum(arr,n))
+
+-----------------------------------------------------------------------------------------
+
+Recursive Calculation of Power of 2
+
+def findpower(num):
+  if num == 0:
+    return 1
+  else:
+    return 2 * findpower(num-1)
+
+num = int(input())
+print(findpower(num))
+
+-----------------------------------------------------------------------------------------
+
