@@ -1,0 +1,137 @@
+Sports Venue Information System
+
+class Venue:
+    def __init__(self, name, city):
+        self.name = name
+        self.city = city
+
+    def display(self):
+        print("Venue Details")
+        print("Venue Name :", self.name)
+        print("City Name :", self.city)
+
+
+print("Enter the venue details")
+user_input = input()  
+
+details = user_input.split(",")
+
+venue_name = details[0].strip()
+city_name = details[1].strip()
+
+v = Venue(venue_name, city_name)
+
+v.display()
+
+------------------------------------------------------------------------------------------
+
+Car Dealership Management System
+
+class Car:
+    def __init__(self, brand, model, year, price, engine_capacity):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.price = price
+        self.engine_capacity = engine_capacity
+
+    def display_car_details(self):
+        print("Car Details:")
+        print(f"Brand: {self.brand}")
+        print(f"Model: {self.model}")
+        print(f"Year: {self.year}")
+        print(f"Price: ${self.price}")
+        print(f"Engine Capacity: {self.engine_capacity} L")
+
+
+brand = input("Enter the brand of the car:\n")
+model = input("Enter the model of the car:\n")
+
+year = int(input("Enter the year of manufacture:\n"))
+price = float(input("Enter the price of the car:\n"))
+engine_capacity = float(input("Enter the engine capacity of the car:\n"))
+
+if year <= 1885 or price <= 0 or engine_capacity <= 0:
+    print("Invalid Input")
+else:
+    car = Car(brand, model, year, price, engine_capacity)
+    car.display_car_details()
+
+--------------------------------------------------------------------------------------------
+
+Cricket Delivery Tracker
+
+class Delivery:
+    def __init__(self, over, ball, runs, batsman, bowler, nonStriker):
+        self.over = over
+        self.ball = ball
+        self.runs = runs
+        self.batsman = batsman
+        self.bowler = bowler
+        self.nonStriker = nonStriker
+
+    def display(self):
+        print(f"Over: {self.over}")
+        print(f"Ball: {self.ball}")
+        print(f"Runs: {self.runs}")
+        print(f"Batsman: {self.batsman}")
+        print(f"Bowler: {self.bowler}")
+        print(f"NonStriker: {self.nonStriker}")
+
+
+print("Enter the over")
+over = int(input())
+
+print("Enter the ball")
+ball = int(input())
+
+print("Enter the runs")
+runs = int(input())
+
+print("Enter the batsman name")
+batsman = input()
+
+print("Enter the bowler name")
+bowler = input()
+
+print("Enter the nonStriker name")
+nonStriker = input()
+
+d = Delivery(over, ball, runs, batsman, bowler, nonStriker)
+d.display()
+
+--------------------------------------------------------------------------------------------------
+
+Cricket Match Score Management System
+
+
+class Innings:
+     def __init__(self, battingTeam="", runs=0):
+         self.battingTeam = battingTeam
+         self.runs = runs
+
+
+innings_list = []
+
+print("Enter the values for Innings 1")
+print("Enter the BattingTeam")
+batting_team1 = input()
+print("Enter the runs scored")
+runs1 = int(input())
+innings1 = Innings(batting_team1, runs1)
+innings_list.append(innings1)
+
+print("Enter the values for Innings 2")
+print("Enter the BattingTeam")
+batting_team2 = input()
+print("Enter the runs scored")
+runs2 = int(input())
+innings2 = Innings(batting_team2, runs2)
+innings_list.append(innings2)
+
+print("Innings 1 Details")
+print(f"BattingTeam: {innings_list[0].battingTeam}")
+print(f"Runs scored: {innings_list[0].runs}")
+print("Innings 2 Details")
+print(f"BattingTeam: {innings_list[1].battingTeam}")
+print(f"Runs scored: {innings_list[1].runs}")
