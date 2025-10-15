@@ -1,0 +1,182 @@
+class CricketPlayer:
+    def __init__(self):
+        self.__name = ""
+        self.__runs = 0
+        self.__matches = 0
+
+    def set_name(self,name):
+        self.__name = name
+
+    def set_runs(self,runs):
+        self.__runs = runs
+
+    def set_matches(self,matches):
+        self.__matches = matches
+
+    def get_name(self):
+        return self.__name
+
+    def get_runs(self):
+        return self.__runs
+
+    def get_matches(self):
+        return self.__matches
+
+print("Enter Player Name:")
+name = input()
+print("Enter Total Runs:")
+runs = int(input())
+print("Enter Matches Played:")
+matches = int(input())
+
+player = CricketPlayer()
+player.set_name(name)
+player.set_runs(runs)
+player.set_matches(matches)
+
+print("\nCricket Player Details:")
+print("Name:", player.get_name())
+print("Total Runs:", player.get_runs())
+print("Matches Played:", player.get_matches())
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+class Player:
+    def __init__(self,name,country,skill):
+        self.__name = name
+        self.__country = country
+        self.__skill = skill
+
+    def set_name(self,name):
+        self.__name = name
+
+    def set_country(self,country):
+        self.__country = country
+
+    def set_skill(self,skill):
+        self.__skill = skill
+
+    def get_name(self):
+        return self.__name
+
+    def get_country(self):
+        return self.__country
+
+    def get_skill(self):
+        return self.__skill
+
+    # it is a string method in python
+    # __str__
+    # it is used to print the str object =>str(object)
+    # <15 => left align means it contain 15 characters width
+    def __str__(self):
+        return f"{self.__name:<15}{self.__country:<15}{self.__skill:<15}"
+
+class PlayerDetails:
+    def display(self,playerlist):
+        print("Player Details")
+        for i in playerlist:
+            print(i)
+
+
+playerlist = []
+n = int(input("Enter the number of players\n"))
+
+for i in range(n):
+    print("Enter the player name")
+    name = input()
+    print("Enter the country name")
+    country = input()
+    print("Enter the skill")
+    skill = input()
+    p = Player(name,country,skill)
+    playerlist.append(p) # after passing add all the details in list
+
+pd = PlayerDetails()
+pd.display(playerlist)
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+class Venue:
+    def __init__(self, name=None, city=None):
+        self.__name = name
+        self.__city = city
+
+    def getName(self):
+        return self.__name
+
+    def getCity(self):
+        return self.__city
+
+    def setName(self, name):
+        self.__name = name
+
+    def setCity(self, city):
+        self.__city = city
+
+
+venues = []
+n = int(input("Enter the number of venues\n"))
+
+for i in range(1, n + 1):
+    print(f"Enter the details of venue {i}")
+    details = input()
+
+    parts = details.split(",", 1)
+    name = parts[0].strip()
+    city = parts[1].strip() if len(parts) > 1 else ""
+
+    v = Venue(name, city)
+    venues.append(v)
+
+print("Venue Details")
+for v in venues:
+    print(f"Venue Name : {v.getName()}")
+    print(f"City Name : {v.getCity()}")
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+class Innings:
+    def __init__(self, batting_team=None, runs=0):
+        self.__batting_team = batting_team
+        self.__runs = runs
+
+    def getBattingTeam(self):
+        return self.__batting_team
+
+    def getRuns(self):
+        return self.__runs
+
+    def setBattingTeam(self, team):
+        self.__batting_team = team
+
+    def setRuns(self, runs):
+        self.__runs = runs
+
+    def __str__(self):
+        return f"{self.__batting_team:<20}{self.__runs:<20}"
+
+
+class InningsBO:
+    def displayAllInningsDetails(self, inningsList):
+        print("Innings Details")
+        for inn in inningsList:
+            print(inn)
+
+
+inningsList = []
+
+print("Enter the values for FirstInnings")
+batting_team1 = input("Enter the BattingTeam\n")
+runs1 = int(input("Enter the runs scored\n"))
+inningsList.append(Innings(batting_team1, runs1))
+
+print("Enter the values for SecondInnings")
+batting_team2 = input("Enter the BattingTeam\n")
+runs2 = int(input("Enter the runs scored\n"))
+inningsList.append(Innings(batting_team2, runs2))
+
+inningsBO = InningsBO()
+inningsBO.displayAllInningsDetails(inningsList)
