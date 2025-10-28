@@ -1,0 +1,162 @@
+Cricket Match Tracker
+
+from datetime import datetime
+
+# Base class
+class Match:
+    def displayMatchDetails(self):
+        pass  # Will be overridden by subclasses
+
+
+# Derived class for match date
+class DateMatch(Match):
+    def __init__(self, date_str):
+        self.match_date = datetime.strptime(date_str, "%d/%m/%Y")
+    
+    def displayMatchDetails(self):
+        print(f"Match Date: {self.match_date.strftime('%m-%d-%Y')}")
+
+
+# Derived class for match venue
+class VenueMatch(Match):
+    def __init__(self, venue_str):
+        self.stadium, self.city = map(str.strip, venue_str.split(",", 1))
+    
+    def displayMatchDetails(self):
+        print("Match Venue:")
+        print(f"Stadium: {self.stadium}")
+        print(f"City: {self.city}")
+
+
+# Derived class for match outcome
+class OutcomeMatch(Match):
+    def __init__(self, winner_team, runs):
+        self.winner_team = winner_team
+        self.runs = runs
+    
+    def displayMatchDetails(self):
+        print("Match Outcome:")
+        print(f"{self.winner_team} won by {self.runs} runs.")
+
+
+# Main program
+def main():
+    print("Menu")
+    print("1. Match Date")
+    print("2. Match Venue")
+    print("3. Match Outcome")
+    choice = int(input("Enter your choice (1-3): "))
+
+    match = None
+
+    if choice == 1:
+        date_str = input("Enter the date of the match (dd/MM/yyyy): ")
+        match = DateMatch(date_str)
+    elif choice == 2:
+        venue_str = input("Enter venue of the match (Stadium, City): ")
+        match = VenueMatch(venue_str)
+    elif choice == 3:
+        winner = input("Enter the winner team of the match: ")
+        runs = int(input("Enter the number of runs: "))
+        match = OutcomeMatch(winner, runs)
+    else:
+        print("Invalid choice. Please enter 1, 2, or 3.")
+        return
+
+    # Polymorphism: same method name, different behavior
+    match.displayMatchDetails()
+
+
+if __name__ == "__main__":
+    main()
+
+----------------------------------------------------------------------------------
+
+Cricket Player Profile with Role-Specific Details
+
+# Base class
+class Player:
+    def __init__(self, name, country, matches):
+        self.name = name
+        self.country = country
+        self.matches = matches
+
+    def displayPlayerInfo(self):
+        print(f"Name: {self.name}")
+        print(f"Country: {self.country}")
+        print(f"Matches Played: {self.matches}")
+
+
+# Batsman subclass
+class Batsman(Player):
+    def __init__(self, name, country, matches, battingAverage, totalRuns):
+        super().__init__(name, country, matches)
+        self.battingAverage = battingAverage
+        self.totalRuns = totalRuns
+
+    def displayPlayerInfo(self):
+        super().displayPlayerInfo()
+        print("Player Type: Batsman")
+        print(f"Batting Average: {self.battingAverage}")
+        print(f"Total Runs: {self.totalRuns}")
+
+
+# Bowler subclass
+class Bowler(Player):
+    def __init__(self, name, country, matches, bowlingAverage, totalWickets):
+        super().__init__(name, country, matches)
+        self.bowlingAverage = bowlingAverage
+        self.totalWickets = totalWickets
+
+    def displayPlayerInfo(self):
+        super().displayPlayerInfo()
+        print("Player Type: Bowler")
+        print(f"Bowling Average: {self.bowlingAverage}")
+        print(f"Total Wickets: {self.totalWickets}")
+
+
+# AllRounder subclass
+class AllRounder(Player):
+    def __init__(self, name, country, matches, battingAverage, bowlingAverage):
+        super().__init__(name, country, matches)
+        self.battingAverage = battingAverage
+        self.bowlingAverage = bowlingAverage
+
+    def displayPlayerInfo(self):
+        super().displayPlayerInfo()
+        print("Player Type: AllRounder")
+        print(f"Batting Average: {self.battingAverage}")
+        print(f"Bowling Average: {self.bowlingAverage}")
+
+
+# Main program
+def main():
+    player_type = input("Enter player type (Batsman/Bowler/AllRounder):\n").strip().lower()
+    name = input("Enter player name:\n")
+    country = input("Enter country:\n")
+    matches = int(input("Enter matches played:\n"))
+
+    if player_type == "batsman":
+        batting_avg = float(input("Enter batting average:\n"))
+        total_runs = int(input("Enter total runs:\n"))
+        player = Batsman(name, country, matches, batting_avg, total_runs)
+    elif player_type == "bowler":
+        bowling_avg = float(input("Enter bowling average:\n"))
+        total_wickets = int(input("Enter total wickets:\n"))
+        player = Bowler(name, country, matches, bowling_avg, total_wickets)
+    elif player_type == "allrounder":
+        batting_avg = float(input("Enter batting average:\n"))
+        bowling_avg = float(input("Enter bowling average:\n"))
+        player = AllRounder(name, country, matches, batting_avg, bowling_avg)
+    else:
+        print("Invalid player type.")
+        return
+
+    print()
+    print("Player Details:")
+    player.displayPlayerInfo()
+    batsman = Batsman("Kohli","India",300,50,10000)
+
+
+if __name__ == "__main__":
+    main()
