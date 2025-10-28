@@ -1,0 +1,85 @@
+University Student Information System
+
+class Student:
+  def __init__(self,name,id,department):
+    self.name = name
+    self.id = id
+    self.department = department
+
+  def displayStudentInfo(self):
+    print("Student Details:")
+    print("Name:",self.name)
+    print("ID:",self.id)
+    print("Department:",self.department)
+
+class GraduateStudent(Student):
+  def __init__(self,name,id,department,thesisTopic):
+    super().__init__(name,id,department)
+    self.thesisTopic = thesisTopic
+
+  def displayThesisTopic(self):
+    print("Thesis Topic:",self.thesisTopic)
+
+name = input("Enter the student's name:\n")
+id = int(input("Enter the student ID:\n"))
+depart = input("Enter the student's department:\n")
+thesis = input("Enter the thesis topic:\n")
+
+grad = GraduateStudent(name,id,depart,thesis)
+grad.displayStudentInfo()
+grad.displayThesisTopic()
+
+
+---------------------------------------------------------------------------------
+
+Automobile Inventory Management System
+
+class Vehicle:
+  def __init__(self,make="",model="",year=0):
+    self.make = make
+    self.model = model
+    self.year = year
+
+  def displayDetails(self):
+    print(f"Make: {self.make}")
+    print(f"Model: {self.model}")
+    print(f"Year: {self.year}")
+
+class Car(Vehicle):
+  def __init__(self,make,model,year,numberOfDoors=0):
+    super().__init__(make,model,year)
+    self.numberOfDoors = numberOfDoors
+
+  def displayCarDetails(self):
+    print("Car Details:")
+    self.displayDetails()
+    print(f"Number of Doors: {self.numberOfDoors}\n")
+
+class Truck(Vehicle):
+  def __init__(self,make,model,year,loadCapacity):
+    super().__init__(make,model,year)
+    self.loadCapacity = loadCapacity
+
+  def displayTruckDetails(self):
+    print("Truck Details:")
+    self.displayDetails()
+    print(f"Load Capacity: {self.loadCapacity } tons\n")
+
+
+print("Enter details for Car:")
+make_car = input("Make: ")
+model_car = input("Model: ")
+year_car = int(input("Year: "))
+doors = int(input("Number of Doors: "))
+car = Car(make_car, model_car, year_car, doors)
+
+
+print("\nEnter details for Truck:")
+make_truck = input("Make: ")
+model_truck = input("Model: ")
+year_truck = int(input("Year: "))
+capacity = float(input("Load Capacity (in tons): "))
+truck = Truck(make_truck, model_truck, year_truck, capacity)
+
+car.displayCarDetails()
+truck.displayTruckDetails()
