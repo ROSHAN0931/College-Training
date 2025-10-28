@@ -1,0 +1,138 @@
+Online Payment System for Different Payment Methods
+
+class Payment:
+    def __init__(self, amount):
+        self.amount = amount
+
+    def make_payment(self):
+        pass
+
+
+class CreditCardPayment(Payment):
+    def __init__(self, amount, card_number, cvv):
+        super().__init__(amount)
+        self.card_number = card_number
+        self.cvv = cvv
+
+    def make_payment(self):
+        print(f"Payment of ${self.amount} processed using Credit Card.")
+        print(f"Card Number: {self.card_number}")
+
+
+class DebitCardPayment(Payment):
+    def __init__(self, amount, card_number):
+        super().__init__(amount)
+        self.card_number = card_number
+
+    def make_payment(self):
+        print(f"Payment of ${self.amount} processed using Debit Card.")
+        print(f"Card Number: {self.card_number}")
+
+
+class DigitalWalletPayment(Payment):
+    def __init__(self, amount, wallet_id):
+        super().__init__(amount)
+        self.wallet_id = wallet_id
+
+    def make_payment(self):
+        print(f"Payment of ${self.amount} processed using Digital Wallet.")
+        print(f"Wallet ID: {self.wallet_id}")
+
+
+def main():
+    print("Select payment method:")
+    print("1. Credit Card")
+    print("2. Debit Card")
+    print("3. Digital Wallet")
+    choice = int(input())
+
+    amount = float(input("Enter payment amount:\n"))
+
+    if choice == 1:
+        cc_number = input("Enter credit card number:\n")
+        cvv = input("Enter CVV:\n")
+        payment = CreditCardPayment(amount, cc_number, cvv)
+    elif choice == 2:
+        dc_number = input("Enter debit card number:\n")
+        payment = DebitCardPayment(amount, dc_number)
+    elif choice == 3:
+        wallet_id = input("Enter wallet ID:\n")
+        payment = DigitalWalletPayment(amount, wallet_id)
+    else:
+        print("Invalid choice.")
+        return
+
+    payment.make_payment()
+
+
+if __name__ == "__main__":
+    main()
+
+-----------------------------------------------------------------------------------
+
+Library Management System for Book Details and Borrowing Status
+
+from abc import ABC, abstractmethod
+
+# Abstract Book class
+class Book(ABC):
+    def __init__(self, title, author, yearPublished):
+        self._title = title
+        self._author = author
+        self._yearPublished = yearPublished
+
+    def displayBookInfo(self):
+        print("Book Information:")
+        print(f"Title: {self._title}")
+        print(f"Author: {self._author}")
+        print(f"Year Published: {self._yearPublished}")
+
+    @abstractmethod
+    def displayStatus(self):
+        pass
+
+
+# Subclasses for book status
+class AvailableBook(Book):
+    def displayStatus(self):
+        print("Status: The book is available.")
+
+
+class ReservedBook(Book):
+    def displayStatus(self):
+        print("Status: The book is reserved.")
+
+
+class BorrowedBook(Book):
+    def displayStatus(self):
+        print("Status: The book is borrowed.")
+
+
+# Main program
+def main():
+    title = input("Enter the book title:\n")
+    author = input("Enter the author:\n")
+    year = input("Enter the year of publication:\n")
+    
+    print("Select book status:")
+    print("1. Available")
+    print("2. Reserved")
+    print("3. Borrowed")
+    choice = input()
+
+    if choice == "1":
+        book = AvailableBook(title, author, year)
+    elif choice == "2":
+        book = ReservedBook(title, author, year)
+    elif choice == "3":
+        book = BorrowedBook(title, author, year)
+    else:
+        print("Invalid choice.")
+        return
+
+    book.displayBookInfo()
+    book.displayStatus()
+
+
+if __name__ == "__main__":
+    main()
