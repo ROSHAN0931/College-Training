@@ -1,0 +1,342 @@
+🛰️ 1. API Consumption (OpenWeatherMap API)
+🎯 Concept
+
+An API (Application Programming Interface) lets two software systems communicate.
+Here we’ll fetch live weather data using the OpenWeatherMap API.
+
+💻 Code
+import requests
+
+city = "Chennai"
+api_key = "YOUR_API_KEY"  # Replace with your key
+url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
+
+response = requests.get(url)
+data = response.json()
+
+if response.status_code == 200:
+    print("City:", data["name"])
+    print("Temperature:", data["main"]["temp"], "°C")
+    print("Weather:", data["weather"][0]["description"])
+else:
+    print("Error:", data.get("message", "Unknown error"))
+
+
+🖥️ Output Example
+City: Chennai
+Temperature: 31.5 °C
+Weather: scattered clouds
+
+
+
+| Line                                         | Explanation                          |
+| -------------------------------------------- | ------------------------------------ |
+| `import requests`                            | Imports library to make web requests |
+| `city = "Chennai"`                           | Stores city name                     |
+| `api_key = "YOUR_API_KEY"`                   | Replace with your OpenWeather key    |
+| `url = f"...{city}...{api_key}..."`          | Builds the request URL               |
+| `requests.get(url)`                          | Sends HTTP GET request to API        |
+| `response.json()`                            | Converts JSON response to dictionary |
+| `if response.status_code == 200:`            | Checks if request successful         |
+| `print("City:", data["name"])`               | Prints city name                     |
+| `data["main"]["temp"]`                       | Accesses temperature value           |
+| `data["weather"][0]["description"]`          | Accesses weather description         |
+| `else: print("Error:", data.get("message"))` | Prints error if API fails            |
+
+
+
+🌐 2. Web Scraping Basics with BeautifulSoup
+🎯 Concept
+
+Web Scraping = extracting data from web pages.
+We’ll scrape quotes and authors from a static website.
+
+💻 Code
+from bs4 import BeautifulSoup
+import requests
+
+url = "https://quotes.toscrape.com/"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, "html.parser")
+
+quotes = soup.find_all("span", class_="text")
+authors = soup.find_all("small", class_="author")
+
+for q, a in zip(quotes, authors):
+    print(f"{q.text} — {a.text}")
+
+
+| Line                                                 | Explanation                  |
+| ---------------------------------------------------- | ---------------------------- |
+| `from bs4 import BeautifulSoup`                      | Imports BeautifulSoup parser |
+| `import requests`                                    | Downloads webpage HTML       |
+| `url = ...`                                          | Website to scrape            |
+| `response = requests.get(url)`                       | Sends request to site        |
+| `soup = BeautifulSoup(response.text, "html.parser")` | Parses HTML                  |
+| `find_all("span", class_="text")`                    | Finds all quotes             |
+| `find_all("small", class_="author")`                 | Finds all authors            |
+| `zip(quotes, authors)`                               | Loops both lists together    |
+| `print(f"{q.text} — {a.text}")`                      | Prints clean text            |
+
+
+
+🖥️ Output
+“The world as we have created it is a process of our thinking.” — Albert Einstein
+“It is our choices, Harry, that show what we truly are.” — J.K. Rowling
+
+
+
+⚙️ 3. Scraping Dynamic Websites with Selenium
+🎯 Concept
+
+Some sites load data using JavaScript.
+requests can’t see this — but Selenium can open a real browser and extract data.
+
+💻 Code
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+driver = webdriver.Chrome()  # make sure ChromeDriver is installed
+driver.get("https://quotes.toscrape.com/js/")
+
+time.sleep(3)  # wait for JS to load
+
+quotes = driver.find_elements(By.CLASS_NAME, "text")
+authors = driver.find_elements(By.CLASS_NAME, "author")
+
+for q, a in zip(quotes, authors):
+    print(f"{q.text} — {a.text}")
+
+driver.quit()
+
+
+| Line                                   | Explanation                          |
+| -------------------------------------- | ------------------------------------ |
+| `from selenium import webdriver`       | Controls browser                     |
+| `By`                                   | Helps find elements                  |
+| `webdriver.Chrome()`                   | Opens Chrome browser                 |
+| `driver.get(url)`                      | Visits webpage                       |
+| `time.sleep(3)`                        | Waits for JavaScript content to load |
+| `find_elements(By.CLASS_NAME, "text")` | Finds all quote elements             |
+| `zip(quotes, authors)`                 | Combines lists                       |
+| `driver.quit()`                        | Closes browser                       |
+
+
+🖥️ Output
+“The world as we have created it is a process of our thinking.” — Albert Einstein
+“It is our choices, Harry, that show what we truly are.” — J.K. Rowling
+
+
+
+🧱 4. Flask Basics – Setup and Hello World
+🎯 Concept
+
+Flask is a lightweight web framework for building Python web apps.
+
+💻 Code
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')	
+def home():
+    return "Hello, Flask!"
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+| Line                      | Explanation               |
+| ------------------------- | ------------------------- |
+| `from flask import Flask` | Imports Flask class       |
+| `app = Flask(__name__)`   | Creates app instance      |
+| `@app.route('/')`         | Defines route (URL path)  |
+| `def home()`              | Function for home page    |
+| `return "Hello, Flask!"`  | Output message            |
+| `app.run(debug=True)`     | Starts development server |
+
+
+
+🖥️ Output
+
+Open browser → visit:
+http://127.0.0.1:5000/
+Output:
+
+Hello, Flask!
+
+
+
+🧭 5. Routing and Templating in Flask
+🎯 Concept
+
+Use Flask with HTML templates to render dynamic content.
+
+💻 Code
+app.py
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    topics = ["Python", "Flask", "API", "Web Scraping"]
+    return render_template("home.html", topics=topics)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+templates/home.html
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>My Learning Topics</h1>
+    <ul>
+      {% for t in topics %}
+        <li>{{ t }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
+
+
+| File               | Explanation             |
+| ------------------ | ----------------------- |
+| `render_template`  | Renders HTML files      |
+| `templates` folder | Flask auto-detects it   |
+| `{{ t }}`          | Displays variable value |
+| `{% for %}`        | Jinja2 loop in template |
+
+
+
+🖥️ Output
+My Learning Topics
+- Python
+- Flask
+- API
+- Web Scraping
+
+
+🧾 6. Handling Forms & POST Requests in Flask
+🎯 Concept
+
+Collect user input via HTML forms and process it in Flask.
+
+💻 Code
+app.py
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET', 'POST'])
+def form():
+    if request.method == 'POST':
+        name = request.form['name']
+        return render_template('result.html', name=name)
+    return render_template('form.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+templates/form.html
+<form method="POST">
+  <label>Enter your name:</label>
+  <input type="text" name="name">
+  <input type="submit" value="Submit">
+</form>
+
+templates/result.html
+<h1>Hello, {{ name }}!</h1>
+
+
+
+
+| Line                                        | Explanation                |
+| ------------------------------------------- | -------------------------- |
+| `methods=['GET','POST']`                    | Accepts form submission    |
+| `request.form['name']`                      | Reads input field          |
+| `render_template('result.html', name=name)` | Passes data to result page |
+
+
+
+🖥️ Output
+
+Input: Roshan
+Output:
+
+Hello, Roshan!
+
+
+💾 7. Connecting Flask with Database (SQLite)
+🎯 Concept
+
+Save and display data using Flask + SQLite database.
+
+💻 Code
+app.py
+from flask import Flask, render_template, request
+import sqlite3
+
+app = Flask(__name__)
+
+def init_db():
+    conn = sqlite3.connect('students.db')
+    conn.execute('CREATE TABLE IF NOT EXISTS students (name TEXT)')
+    conn.close()
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    conn = sqlite3.connect('students.db')
+    cur = conn.cursor()
+
+    if request.method == 'POST':
+        name = request.form['name']
+        cur.execute('INSERT INTO students (name) VALUES (?)', (name,))
+        conn.commit()
+
+    cur.execute('SELECT * FROM students')
+    data = cur.fetchall()
+    conn.close()
+
+    return render_template('form.html', data=data)
+
+if __name__ == '__main__':
+    init_db()
+    app.run(debug=True)
+
+templates/form.html
+<form method="POST">
+  <label>Enter name:</label>
+  <input type="text" name="name">
+  <input type="submit" value="Save">
+</form>
+
+<h2>Saved Names:</h2>
+<ul>
+  {% for d in data %}
+    <li>{{ d[0] }}</li>
+  {% endfor %}
+</ul>
+
+
+
+
+| Line                                      | Explanation                  |
+| ----------------------------------------- | ---------------------------- |
+| `sqlite3.connect()`                       | Opens SQLite DB              |
+| `CREATE TABLE IF NOT EXISTS`              | Creates table if not present |
+| `INSERT INTO students`                    | Adds new name                |
+| `SELECT * FROM students`                  | Retrieves all saved names    |
+| `render_template('form.html', data=data)` | Displays names list          |
+
+🖥️ Output
+Saved Names:
+- Roshan
+- Karan
+- Priya
+
+
+
+
