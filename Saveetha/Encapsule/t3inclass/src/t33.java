@@ -23,16 +23,12 @@ class Cricket {
     }
 
     public void setTotalRuns(int totalRuns) {
-        if (totalRuns < 0)
-            this.totalRuns = 0;
-        else
+        if (totalRuns > 0)
             this.totalRuns = totalRuns;
     }
 
     public void setMatchesPlayed(int matchesPlayed) {
-        if (matchesPlayed < 0)
-            this.matchesPlayed = 0;
-        else
+        if (matchesPlayed > 0)
             this.matchesPlayed = matchesPlayed;
     }
 }
@@ -56,7 +52,7 @@ public class t33 {
         int matches = sc.nextInt();
         player.setMatchesPlayed(matches);
 
-        System.out.println("Cricket Player Details:");
+        System.out.println("\nCricket Player Details:");
         System.out.println("Name: " + player.getName());
         System.out.println("Total Runs: " + player.getTotalRuns());
         System.out.println("Matches Played: " + player.getMatchesPlayed());
