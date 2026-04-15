@@ -1,0 +1,298 @@
+ARRAYS
+
+1. Find two numbers whose sum equals target and return their indices.
+   Input: nums=[2,7,11,15], target=9 → Output: [0,1]
+2. Find the maximum sum of a contiguous subarray.
+   Input: [-2,1,-3,4,-1,2,1,-5,4] → Output: 6
+3. Find the best time to buy and sell stock for maximum profit.
+   Input: [7,1,5,3,6,4] → Output: 5
+4. Merge all overlapping intervals.
+   Input: [[1,3],[2,6],[8,10]] → Output: [[1,6],[8,10]]
+5. Return array where each element is product except itself.
+   Input: [1,2,3,4] → Output: [24,12,8,6]
+6. Rotate array to the right by k steps.
+   Input: [1,2,3,4,5,6,7], k=3 → Output: [5,6,7,1,2,3,4]
+7. Find the missing number from 0 to n.
+   Input: [3,0,1] → Output: 2
+8. Find the duplicate number in the array.
+   Input: [1,3,4,2,2] → Output: 2
+9. Set entire row and column to zero if element is zero.
+   Input: [[1,1,1],[1,0,1],[1,1,1]] → Output: [[1,0,1],[0,0,0],[1,0,1]]
+10.Find length of longest consecutive sequence.
+   Input: [100,4,200,1,3,2] → Output: 4
+
+STRINGS
+
+1. Check if a string is palindrome ignoring special characters.
+   Input: "A man, a plan" → Output: true
+2. Find longest substring without repeating characters.
+   Input: "abcabcbb" → Output: 3
+3. Check if two strings are anagrams.
+   Input: "anagram","nagaram" → Output: true
+4. Group strings that are anagrams.
+   Input: ["eat","tea","tan"] → Output: [["eat","tea"],["tan"]]
+5. Compress string using character counts.
+   Input: ["a","a","b","b"] → Output: 4
+6. Generate count-and-say sequence.
+   Input: n=4 → Output: "1211"
+7. Find first occurrence of substring.
+   Input: "hello","ll" → Output: 2
+8. Reverse words in a string.
+   Input: "the sky" → Output: "sky the"
+9. Find longest palindromic substring.
+   Input: "babad" → Output: "bab"
+10.Find minimum window substring.
+   Input: s="ADOBECODEBANC", t="ABC" → Output: "BANC"
+
+RECURSION
+
+1. Find factorial of a number using recursion.
+   Input: 5 → Output: 120
+2. Find nth Fibonacci number.
+   Input: 6 → Output: 8
+3. Compute power x^n using recursion.
+   Input: x=2,n=10 → Output: 1024
+4. Generate all subsets of a set.
+   Input: [1,2] → Output: [[],[1],[2],[1,2]]
+5. Generate all permutations.
+   Input: [1,2] → Output: [[1,2],[2,1]]
+6. Solve Tower of Hanoi (minimum moves).
+   Input: n=3 → Output: 7
+7. Reverse a string recursively.
+   Input: "abc" → Output: "cba"
+8. Perform binary search using recursion.
+   Input: [1,2,3,4,5], key=3 → Output: 2
+9. Find nth Catalan number.
+   Input: n=3 → Output: 5
+10.Generate valid parentheses combinations.
+   Input: n=2 → Output: ["()()","(())"]
+
+LINKED LIST
+
+1. Reverse a linked list.
+   Input: 1→2→3 → Output: 3→2→1
+2. Detect cycle in linked list.
+   Input: cycle exists → Output: true
+3. Merge two sorted linked lists.
+   Input: 1→2, 1→3 → Output: 1→1→2→3
+4. Remove nth node from end.
+   Input: 1→2→3→4→5, n=2 → Output: 1→2→3→5
+5. Find intersection point of two lists.
+   Input: intersect at 8 → Output: 8
+6. Find middle node of list.
+   Input: 1→2→3→4→5 → Output: 3
+7. Check if linked list is palindrome.
+   Input: 1→2→1 → Output: true
+8. Add two numbers represented as lists.
+   Input: 2→4→3, 5→6→4 → Output: 7→0→8
+9. Rotate list by k positions.
+   Input: 1→2→3→4, k=2 → Output: 3→4→1→2
+10.Flatten multilevel linked list.
+   Input: multilevel list → Output: single list
+
+STACK
+
+1. Check if parentheses are valid.
+   Input: "()[]{}" → Output: true
+2. Design a stack with minimum operation.
+   Input: push/pop → Output: min value
+3. Find next greater element for each element.
+   Input: [2,1,2,4,3] → Output: [4,2,4,-1,-1]
+4. Find largest rectangle in histogram.
+   Input: [2,1,5,6,2,3] → Output: 10
+5. Evaluate postfix expression.
+   Input: "23*" → Output: 6
+6. Implement stack using queue.
+   Input: operations → Output: valid
+7. Sort a stack.
+   Input: [3,1,2] → Output: [1,2,3]
+8. Solve daily temperatures problem.
+   Input: [73,74,75,71] → Output: [1,1,0,0]
+9. Calculate stock span.
+   Input: [100,80,60,70] → Output: [1,1,1,2]
+10.Decode encoded string.
+   Input: "3[a]" → Output: "aaa"
+
+QUEUE
+
+1. Implement queue using stacks.
+   Input: push(1),push(2),pop() → Output: 1
+2. Design a circular queue with fixed size.
+   Input: operations → Output: correct insertion/deletion
+3. Find maximum in each sliding window of size k.
+   Input: [1,3,-1,-3,5], k=3 → Output: [3,3,5]
+4. Find first non-repeating character in a stream.
+   Input: "aabc" → Output: "a#bb"
+5. Find time to rot all oranges in grid.
+   Input: [[2,1,1],[1,1,0]] → Output: 4
+6. Schedule tasks with cooling interval.
+   Input: tasks=[A,A,A,B,B,B], n=2 → Output: 8
+7. Perform BFS traversal of graph.
+   Input: graph → Output: BFS order
+8. Generate binary numbers from 1 to n.
+   Input: n=3 → Output: [1,10,11]
+9. Design LRU cache.
+   Input: operations → Output: cache results
+10.Interleave first half with second half of queue.
+   Input: [1,2,3,4] → Output: [1,3,2,4]
+
+TREE
+
+1. Perform inorder traversal of binary tree.
+   Input: tree → Output: left-root-right
+2. Perform level order traversal.
+   Input: tree → Output: [[1],[2,3]]
+3. Find height of binary tree.
+   Input: tree → Output: height
+4. Find diameter of binary tree.
+   Input: tree → Output: longest path length
+5. Find lowest common ancestor of two nodes.
+   Input: nodes → Output: LCA
+6. Check if tree is height-balanced.
+   Input: tree → Output: true/false
+7. Perform zigzag level order traversal.
+   Input: tree → Output: zigzag levels
+8. Print boundary traversal of tree.
+   Input: tree → Output: boundary nodes
+9. Find vertical order traversal.
+   Input: tree → Output: grouped by vertical
+10.Check if tree is symmetric.
+   Input: tree → Output: true
+
+Binary Search Tree
+
+1. Validate if binary tree is a BST.
+   Input: tree → Output: true/false
+2. Insert a node into BST.
+   Input: BST, value=5 → Output: updated tree
+3. Delete a node from BST.
+   Input: BST, key=3 → Output: updated tree
+4. Find kth smallest element in BST.
+   Input: BST, k=2 → Output: value
+5. Find LCA in BST.
+   Input: nodes → Output: ancestor
+6. Convert sorted array to BST.
+   Input: [1,2,3,4] → Output: balanced BST
+7. Implement BST iterator.
+   Input: operations → Output: next smallest
+8. Find floor and ceil in BST.
+   Input: key=5 → Output: floor & ceil
+9. Find sum of values in range.
+   Input: range=[L,R] → Output: sum
+10.Recover a swapped BST.
+   Input: invalid BST → Output: corrected BST
+
+GRAPH
+
+1. Perform DFS traversal of graph.
+   Input: graph → Output: DFS order
+2. Perform BFS traversal of graph.
+   Input: graph → Output: BFS order
+3. Detect cycle in graph.
+   Input: graph → Output: true/false
+4. Perform topological sorting of DAG.
+   Input: graph → Output: ordering
+5. Find shortest path using Dijkstra.
+   Input: graph → Output: distances
+6. Find shortest path using Bellman-Ford.
+   Input: graph → Output: distances
+7. Count number of islands in grid.
+   Input: grid → Output: count
+8. Clone a graph.
+   Input: graph → Output: deep copy
+9. Check if course schedule is possible.
+   Input: prerequisites → Output: true/false
+10.Find minimum spanning tree.
+   Input: graph → Output: minimum cost
+
+DYNAMIC PROGRAMMING
+
+1. Compute Fibonacci using DP.
+   Input: n=6 → Output: 8
+2. Solve 0/1 knapsack problem.
+   Input: weights, values → Output: max value
+3. Find longest common subsequence.
+   Input: "abcde","ace" → Output: 3
+4. Find longest increasing subsequence.
+   Input: [10,9,2,5,3] → Output: 3
+5. Find minimum coins to make amount.
+   Input: coins=[1,2,5], amount=11 → Output: 3
+6. Find edit distance between two strings.
+   Input: "horse","ros" → Output: 3
+7. Matrix chain multiplication minimum cost.
+   Input: dims → Output: min cost
+8. Partition array into equal sum subsets.
+   Input: [1,5,11,5] → Output: true
+9. Word break problem.
+   Input: "leetcode" → Output: true
+10.House robber maximum sum.
+   Input: [1,2,3,1] → Output: 4
+
+BACKTRACKING
+
+1. Solve N-Queens problem.
+   Input: n=4 → Output: valid board configurations
+2. Solve Sudoku puzzle.
+   Input: board → Output: solved board
+3. Generate all permutations of array.
+   Input: [1,2] → Output: [[1,2],[2,1]]
+4. Generate all combinations.
+   Input: n=4,k=2 → Output: combinations
+5. Generate all subsets.
+   Input: [1,2] → Output: subsets
+6. Find all paths in rat in maze.
+   Input: grid → Output: paths
+7. Word search in board.
+   Input: board, word → Output: true/false
+8. Find combination sum.
+   Input: [2,3,6], target=6 → Output: [[2,2,2],[3,3]]
+9. Palindrome partitioning.
+   Input: "aab" → Output: [["a","a","b"]]
+10.Graph coloring problem.
+   Input: graph → Output: valid coloring
+
+STRING ALGORITHMS
+
+1. Perform pattern matching using KMP algorithm.
+   Input: text, pattern → Output: match index
+2. Pattern matching using Rabin-Karp.
+   Input: text, pattern → Output: match positions
+3. Compute Z-array for string.
+   Input: "aabxaabx" → Output: Z-values
+4. Implement Trie (insert/search).
+   Input: words → Output: found/not found
+5. Compute LPS array.
+   Input: pattern → Output: LPS values
+6. Find pattern occurrences in string.
+   Input: text → Output: indices
+7. Build suffix array.
+   Input: string → Output: sorted suffix indices
+8. Build LCP array.
+   Input: string → Output: LCP values
+9. Find longest palindrome using Manacher’s algorithm.
+   Input: "babad" → Output: "bab"
+10.Compute rolling hash of string.
+   Input: string → Output: hash values
+
+BIT MANIPULATION
+
+1. Count number of set bits in integer.
+   Input: n=5 → Output: 2
+2. Check if number is power of two.
+   Input: n=8 → Output: true
+3. Find single number using XOR.
+   Input: [2,2,1] → Output: 1
+4. Swap two numbers using XOR.
+   Input: a=3,b=5 → Output: a=5,b=3
+5. Generate subsets using bit masking.
+   Input: [1,2] → Output: subsets
+6. Find missing number using XOR.
+   Input: [0,1,3] → Output: 2
+7. Reverse bits of a number.
+   Input: number → Output: reversed bits
+8. Generate Gray code sequence.
+   Input: n=2 → Output: [0,1,3,2]
+9. Solve problems using bitmask DP.
+   Input: states → Output: result
+10.Divide two numbers without operators.
+   Input: 10/3 → Output: 3
