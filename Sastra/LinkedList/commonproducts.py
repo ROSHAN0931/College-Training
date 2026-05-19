@@ -40,7 +40,7 @@ class Linkedlist:
         if result:
             print(*result)
         else:
-            print("No intersection")
+            print("No Intersection")
 
 n1 = int(input())
 val1 = list(map(int,input().split()))
