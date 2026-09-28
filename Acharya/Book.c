@@ -1,3 +1,20 @@
+/*
+Experiment 1:-
+
+Implement the Linear data structures for organizing and performing various operations on data stored.
+
+1.Create a Book structure and display one book's details.
+2.Store details of N books using an array of structures.
+3.Dynamically allocate memory for N books using malloc().
+4.Display all books using a function.
+5.Search a book using Book ID.
+6.Search a book using Book Title.
+7.Implement Issue Book operation.
+8.Implement Return Book operation.
+9.Count the number of available books.
+10.Create a menu-driven Book Management System using struct, malloc(), functions, and free().
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
